@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabela da Copa 2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>🏆 Tabela da Copa do Mundo 2026</h1>
+  <div class="topbar-actions">
+    <button id="btnSettings" class="btn edit-only" title="Configurar chave da API">⚙ API</button>
+    <button id="btnRefresh" class="btn btn-primary edit-only">Buscar Confrontos</button>
+    <button id="btnClearScores" class="btn edit-only" title="Apaga todos os placares preenchidos por você">Limpar Placares</button>
+    <button id="btnExport" class="btn edit-only" title="Gera o arquivo data.json para publicar e compartilhar com os amigos">Exportar para Compartilhar</button>
+    <span id="lastUpdated" class="last-updated"></span>
+  </div>
+</header>
+
+<div id="viewerBanner" class="viewer-banner hidden">
+  👀 Modo somente leitura — os placares e palpites são atualizados pelo administrador.
+</div>
+
+<div id="settingsPanel" class="settings-panel hidden edit-only">
+  <p>
+    Para buscar a tabela de confrontos (datas, times e chaveamento), este app usa a API gratuita
+    <a href="https://www.football-data.org/client/register" target="_blank" rel="noopener">football-data.org</a>.
+    Cadastre-se gratuitamente e cole sua chave (token) abaixo. A chave fica salva apenas no seu navegador.
+    Os placares podem ser preenchidos manualmente em cada jogo, e ficam salvos no seu navegador.
+  </p>
+  <div class="settings-row">
+    <label for="apiKey">Chave da API (X-Auth-Token)</label>
+    <input type="password" id="apiKey" placeholder="Cole sua chave aqui">
+    <button id="btnSaveKey" class="btn btn-primary">Salvar</button>
+  </div>
+  <label class="checkbox-row">
+    <input type="checkbox" id="autoRefresh">
+    Atualizar automaticamente a cada 60 segundos
+  </label>
+</div>
+
+<div id="statusBar" class="status-bar hidden"></div>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-stage="GROUP_STAGE">Fase de Grupos</button>
+  <button class="tab" data-stage="NEXT_PHASE">Próxima Fase</button>
+  <button class="tab" data-stage="LAST_16">Oitavas de Final</button>
+  <button class="tab" data-stage="QUARTER_FINALS">Quartas de Final</button>
+  <button class="tab" data-stage="SEMI_FINALS">Semifinais</button>
+  <button class="tab" data-stage="THIRD_PLACE">3º Lugar</button>
+  <button class="tab" data-stage="FINAL">Final</button>
+  <button class="tab" data-stage="BOLAO">Bolão</button>
+</nav>
+
+<main class="container">
+  <div id="emptyState" class="empty-state">
+    Nenhum dado carregado ainda. Configure sua chave da API em "⚙ API" e clique em "Atualizar Placares".
+  </div>
+  <div id="content"></div>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
