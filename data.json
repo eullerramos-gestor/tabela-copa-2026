@@ -6280,7 +6280,7 @@
       },
       "Reiner": {
         "home": 2,
-        "away": 1
+        "away": 2
       }
     },
     "537333": {
@@ -6301,8 +6301,8 @@
         "away": 1
       },
       "Douglas": {
-        "home": 1,
-        "away": 2
+        "home": 2,
+        "away": 1
       },
       "Euller": {
         "home": 1,
@@ -6563,7 +6563,7 @@
         "away": 0
       },
       "Welsirley": {
-        "home": 1,
+        "home": 2,
         "away": 1
       },
       "Basilio": {
@@ -6571,7 +6571,7 @@
         "away": 1
       },
       "Douglas": {
-        "home": 2,
+        "home": 1,
         "away": 1
       },
       "Euller": {
@@ -6795,8 +6795,8 @@
     },
     "537398": {
       "Weverthon": {
-        "home": 3,
-        "away": 2
+        "away": 2,
+        "home": 2
       },
       "Marcos": {
         "home": 3,
@@ -6829,8 +6829,8 @@
         "away": 1
       },
       "Marcos": {
-        "home": 2,
-        "away": 0
+        "away": 0,
+        "home": 3
       },
       "Welsirley": {
         "home": 3,
@@ -6944,5 +6944,5 @@
       }
     }
   },
-  "updated": "2026-06-15T11:13:28.615Z"
+  "updated": "2026-06-15T13:51:22.430Z"
 }
