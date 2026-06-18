@@ -757,12 +757,21 @@ function renderBolaoRanking(stageFilter) {
   `;
 }
 
+const ROUND_LABELS = {
+  1: 'Primeira Rodada',
+  2: 'Segunda Rodada',
+  3: 'Terceira Rodada',
+};
+
 function renderBolaoMatchesTable(matches) {
   if (!matches.length) return '<p class="match-meta">Sem jogos definidos para esta fase ainda.</p>';
 
   const data = getBolaoData();
+  const totalCols = PARTICIPANTS.length + 1;
   const headerCols = PARTICIPANTS.map(p => `<th class="participant-col" style="background:${p.color}">${p.name}</th>`).join('');
 
+  let lastRound = null;
+  let lastStage = null;
   const rows = matches.map(m => {
     const actual = getEffectiveScore(m);
     const entry = data[m.id] || {};
@@ -791,7 +800,22 @@ function renderBolaoMatchesTable(matches) {
       ? (m.group || '').replace('GROUP_', 'Grupo ')
       : (STAGE_LABELS[m.stage] || formatStageLabel(m.stage));
 
+    let separator = '';
+    if (m.stage === 'GROUP_STAGE') {
+      const round = m.matchday || 0;
+      if (round !== lastRound) {
+        lastRound = round;
+        const label = ROUND_LABELS[round] || `Rodada ${round}`;
+        separator = `<tr class="bolao-round-header"><td colspan="${totalCols}">⚽ ${label}</td></tr>`;
+      }
+    } else if (m.stage !== lastStage) {
+      lastStage = m.stage;
+      const label = STAGE_LABELS[m.stage] || formatStageLabel(m.stage);
+      separator = `<tr class="bolao-round-header"><td colspan="${totalCols}">🏆 ${label}</td></tr>`;
+    }
+
     return `
+      ${separator}
       <tr>
         <td class="confronto-cell">
           <div class="match-meta">${formatDateTime(m.utcDate)} &middot; ${stageLabel}</div>
