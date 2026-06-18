@@ -85,6 +85,33 @@ const BOLAO_SEED_R2 = [
   { home: 'Panamá', away: 'Croácia', palpites: { Douglas: '0x2', Euller: '0x2', Reiner: '0x2', Pedroka: '0x4' } },
 ];
 
+const BOLAO_SEED_R2_BY_ID = [
+  { id: 537329, palpites: { Weverthon:'1x2', Marcos:'2x2', Welsirley:'2x1', Basilio:'2x0', Douglas:'2x1', Euller:'1x0', Reiner:'1x1', Pedroka:'2x0' } },
+  { id: 537330, palpites: { Weverthon:'2x2', Marcos:'1x1', Welsirley:'1x1', Basilio:'1x1', Douglas:'2x2', Euller:'1x2', Reiner:'2x1', Pedroka:'1x1' } },
+  { id: 537335, palpites: { Weverthon:'2x0', Marcos:'2x1', Welsirley:'2x1', Basilio:'2x1', Douglas:'2x0', Euller:'0x0', Reiner:'2x1', Pedroka:'1x2' } },
+  { id: 537336, palpites: { Weverthon:'2x1', Marcos:'3x1', Welsirley:'1x0', Basilio:'2x0', Douglas:'2x0', Euller:'2x0', Reiner:'2x0', Pedroka:'2x0' } },
+  { id: 537342, palpites: { Weverthon:'1x3', Marcos:'1x2', Welsirley:'1x1', Basilio:'1x2', Douglas:'0x2', Euller:'1x3', Reiner:'1x2', Pedroka:'0x2' } },
+  { id: 537341, palpites: { Weverthon:'4x1', Marcos:'5x0', Welsirley:'3x0', Basilio:'4x0', Douglas:'3x0', Euller:'2x0', Reiner:'3x1', Pedroka:'4x0' } },
+  { id: 537348, palpites: { Weverthon:'2x0', Marcos:'3x2', Welsirley:'2x2', Basilio:'2x1', Douglas:'1x2', Euller:'2x1', Reiner:'2x2', Pedroka:'1x1' } },
+  { id: 537347, palpites: { Weverthon:'1x2', Marcos:'2x2', Welsirley:'2x1', Basilio:'2x1', Douglas:'2x1', Euller:'1x1', Reiner:'2x1', Pedroka:'2x0' } },
+  { id: 537353, palpites: { Weverthon:'3x0', Marcos:'3x1', Welsirley:'2x0', Basilio:'3x0', Douglas:'3x1', Euller:'4x0', Reiner:'3x1', Pedroka:'6x1' } },
+  { id: 537354, palpites: { Weverthon:'3x1', Marcos:'4x1', Welsirley:'2x0', Basilio:'3x0', Douglas:'3x0', Euller:'3x0', Reiner:'3x0', Pedroka:'2x1' } },
+  { id: 537359, palpites: { Weverthon:'2x1', Marcos:'1x1', Welsirley:'2x2', Basilio:'2x1', Douglas:'3x1', Euller:'3x2', Reiner:'3x2', Pedroka:'3x2' } },
+  { id: 537360, palpites: { Weverthon:'1x2', Marcos:'2x3', Welsirley:'1x2', Basilio:'0x2', Douglas:'0x2', Euller:'0x2', Reiner:'0x2', Pedroka:'1x3' } },
+  { id: 537365, palpites: { Weverthon:'2x0', Marcos:'4x1', Welsirley:'1x0', Basilio:'2x0', Douglas:'2x0', Euller:'2x1', Reiner:'2x0', Pedroka:'3x0' } },
+  { id: 537366, palpites: { Weverthon:'2x2', Marcos:'1x2', Welsirley:'1x2', Basilio:'1x2', Douglas:'1x1', Euller:'0x1', Reiner:'0x1', Pedroka:'2x2' } },
+  { id: 537371, palpites: { Weverthon:'3x0', Marcos:'2x0', Welsirley:'3x1', Basilio:'3x0', Douglas:'3x1', Euller:'3x0', Reiner:'3x0', Pedroka:'3x0' } },
+  { id: 537372, palpites: { Weverthon:'2x0', Marcos:'3x1', Welsirley:'2x1', Basilio:'2x1', Douglas:'3x0', Euller:'2x0', Reiner:'2x0', Pedroka:'1x1' } },
+  { id: 537393, palpites: { Weverthon:'4x0', Marcos:'5x0', Welsirley:'4x0', Basilio:'4x0', Douglas:'6x0', Euller:'5x1', Reiner:'4x0', Pedroka:'6x0' } },
+  { id: 537394, palpites: { Weverthon:'2x1', Marcos:'2x2', Welsirley:'1x1', Basilio:'2x1', Douglas:'1x2', Euller:'2x0', Reiner:'2x2', Pedroka:'2x2' } },
+  { id: 537399, palpites: { Weverthon:'4x0', Marcos:'2x1', Welsirley:'1x1', Basilio:'2x1', Douglas:'2x1', Euller:'3x1', Reiner:'2x1', Pedroka:'4x0' } },
+  { id: 537400, palpites: { Weverthon:'1x3', Marcos:'1x1', Welsirley:'1x2', Basilio:'1x2', Douglas:'1x2', Euller:'0x0', Reiner:'1x2', Pedroka:'0x2' } },
+  { id: 537405, palpites: { Weverthon:'3x0', Marcos:'3x0', Welsirley:'2x0', Basilio:'2x0', Douglas:'4x0', Euller:'2x0', Reiner:'3x0', Pedroka:'4x0' } },
+  { id: 537406, palpites: { Weverthon:'2x0', Marcos:'2x1', Welsirley:'2x1', Basilio:'2x1', Douglas:'3x0', Euller:'2x0', Reiner:'2x0', Pedroka:'3x0' } },
+  { id: 537411, palpites: { Weverthon:'3x1', Marcos:'2x1', Welsirley:'3x1', Basilio:'3x0', Douglas:'2x1', Euller:'3x0', Reiner:'3x1', Pedroka:'3x0' } },
+  { id: 537412, palpites: { Weverthon:'1x3', Marcos:'1x3', Welsirley:'0x3', Basilio:'0x3', Douglas:'0x2', Euller:'0x2', Reiner:'0x2', Pedroka:'0x4' } },
+];
+
 const TEAM_ALIASES = {
   'México': { primary: 'Mexico' },
   'África do Sul': { primary: 'South Africa' },
@@ -276,7 +303,7 @@ function seedBolaoData() {
   const data = getBolaoData();
   let changed = false;
 
-  [...BOLAO_SEED, ...BOLAO_SEED_R2].forEach(seed => {
+  BOLAO_SEED.forEach(seed => {
     const found = findApiMatchForSeed(seed);
     if (!found) return;
 
@@ -294,6 +321,26 @@ function seedBolaoData() {
 
     if (entryChanged) {
       data[found.match.id] = entry;
+      changed = true;
+    }
+  });
+
+  BOLAO_SEED_R2_BY_ID.forEach(({ id, palpites }) => {
+    const key = String(id);
+    const entry = data[key] || {};
+    let entryChanged = false;
+
+    PARTICIPANTS.forEach(p => {
+      if (entry[p.name]) return;
+      const guess = palpites[p.name];
+      if (!guess) return;
+      const [a, b] = guess.split('x').map(Number);
+      entry[p.name] = { home: a, away: b };
+      entryChanged = true;
+    });
+
+    if (entryChanged) {
+      data[key] = entry;
       changed = true;
     }
   });
