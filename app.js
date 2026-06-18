@@ -21,14 +21,14 @@ const STATUS_LABELS = {
 };
 
 const PARTICIPANTS = [
-  { name: 'Weverthon', color: '#1d4ed8' },
-  { name: 'Marcos', color: '#15803d' },
-  { name: 'Welsirley', color: '#a16207' },
-  { name: 'Basilio', color: '#be185d' },
-  { name: 'Douglas', color: '#6d28d9' },
-  { name: 'Euller', color: '#b91c1c' },
-  { name: 'Reiner', color: '#0e7490' },
-  { name: 'Pedroka', color: '#ea580c' }
+  { name: 'Weverthon', fullName: 'Weverthon Dias',    color: '#1d4ed8' },
+  { name: 'Marcos',    fullName: 'Marcos Vinícius',   color: '#15803d' },
+  { name: 'Welsirley', fullName: 'Welsirley Brito',   color: '#a16207' },
+  { name: 'Basilio',   fullName: 'Lucas Basílio',     color: '#be185d' },
+  { name: 'Douglas',   fullName: 'Douglas Chagas',    color: '#6d28d9' },
+  { name: 'Euller',    fullName: 'Euller Ramos',      color: '#b91c1c' },
+  { name: 'Reiner',    fullName: 'Reiner Marques',    color: '#0e7490' },
+  { name: 'Pedroka',   fullName: 'Pedroka Ramos',     color: '#ea580c' }
 ];
 
 const BOLAO_SEED = [
@@ -739,7 +739,7 @@ function renderBolaoRanking(stageFilter) {
   const rows = ranking.map((p, i) => `
     <tr style="background:${p.color}18">
       <td>${i + 1}º</td>
-      <td><span class="participant-tag" style="background:${p.color}">${p.name}</span></td>
+      <td><span class="participant-tag" style="background:${p.color}">${p.fullName || p.name}</span></td>
       <td>${p.pts}</td>
       <td>${p.exatos}</td>
       <td>${p.acertos}</td>
