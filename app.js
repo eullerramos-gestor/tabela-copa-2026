@@ -785,9 +785,8 @@ function renderBolaoMatchesTable(matches) {
       else if (pts === 0) ptsClass = 'pts-0';
 
       const ro = READ_ONLY ? 'disabled' : '';
-      const bgColor = p.color + '22';
       return `
-        <td class="participant-cell ${ptsClass}" style="background:${bgColor}">
+        <td class="participant-cell ${ptsClass}">
           <div class="bolao-inputs">
             <input type="number" min="0" class="score-input bolao-input" data-match-id="${m.id}" data-participant="${p.name}" data-side="home" value="${palpite.home !== undefined ? palpite.home : ''}" placeholder="-" ${ro}>
             <span class="dash">x</span>
