@@ -278,17 +278,21 @@ function seedBolaoData() {
 
   [...BOLAO_SEED, ...BOLAO_SEED_R2].forEach(seed => {
     const found = findApiMatchForSeed(seed);
-    if (!found || data[found.match.id]) return;
+    if (!found) return;
 
-    const entry = {};
+    const entry = data[found.match.id] || {};
+    let entryChanged = false;
+
     PARTICIPANTS.forEach(p => {
+      if (entry[p.name]) return;
       const guess = seed.palpites[p.name];
       if (!guess) return;
       const [a, b] = guess.split('x').map(Number);
       entry[p.name] = found.swapped ? { home: b, away: a } : { home: a, away: b };
+      entryChanged = true;
     });
 
-    if (Object.keys(entry).length) {
+    if (entryChanged) {
       data[found.match.id] = entry;
       changed = true;
     }
