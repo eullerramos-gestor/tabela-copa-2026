@@ -424,7 +424,7 @@ tr:last-child td {
 .participant-tag {
   display: inline-block;
   padding: 5px 14px;
-  clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0% calc(100% - 12px), 0% 12px);
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
   font-size: 0.8rem;
   font-weight: 700;
   color: #fff;
