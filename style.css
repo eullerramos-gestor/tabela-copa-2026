@@ -553,16 +553,20 @@ tr:last-child td {
   padding: 8px 4px;
 }
 
+.participant-cell {
+  border-left: 3px solid transparent;
+}
+
 .participant-cell.pts-3 {
-  background: rgba(34, 197, 94, 0.25);
+  border-left: 3px solid #22c55e;
 }
 
 .participant-cell.pts-1 {
-  background: rgba(245, 158, 11, 0.2);
+  border-left: 3px solid #f59e0b;
 }
 
 .participant-cell.pts-0 {
-  background: rgba(239, 68, 68, 0.18);
+  border-left: 3px solid #ef4444;
 }
 
 .knockout-list {
