@@ -2,6 +2,7 @@ const MATCHES_ENDPOINT = '/api/matches';
 
 const STAGE_LABELS = {
   GROUP_STAGE: 'Fase de Grupos',
+  LAST_32: '16 Avos de Final',
   LAST_16: 'Oitavas de Final',
   QUARTER_FINALS: 'Quartas de Final',
   SEMI_FINALS: 'Semifinais',
@@ -185,6 +186,7 @@ const READ_ONLY = !['localhost', '127.0.0.1', ''].includes(location.hostname);
 let allMatches = [];
 let activeStage = 'GROUP_STAGE';
 let activeBolaoTab = 'GERAL';
+let activeBolaoParticipant = null;
 let autoRefreshTimer = null;
 let remoteData = { scores: {}, bolao: {} };
 
@@ -870,12 +872,17 @@ function renderBolaoMatchesTable(matches) {
       <tr>
         <td class="confronto-cell">
           <div class="match-meta">${formatDateTime(m.utcDate)} &middot; ${stageLabel}</div>
-          <div class="confronto-teams">
-            ${teamCell(m.homeTeam, 'home')}
-            <span class="vs">x</span>
-            ${teamCell(m.awayTeam, 'away')}
+          <div class="detail-confronto" style="margin-top:4px">
+            <span class="detail-home">
+              ${m.homeTeam?.crest ? `<img src="${m.homeTeam.crest}" width="14" height="14" style="vertical-align:middle;flex-shrink:0;object-fit:contain">` : ''}
+              <span>${m.homeTeam?.shortName || m.homeTeam?.name || '?'}</span>
+            </span>
+            <span class="detail-score">${actual.home !== null ? actual.home : '-'} x ${actual.away !== null ? actual.away : '-'}</span>
+            <span class="detail-away">
+              <span>${m.awayTeam?.shortName || m.awayTeam?.name || '?'}</span>
+              ${m.awayTeam?.crest ? `<img src="${m.awayTeam.crest}" width="14" height="14" style="vertical-align:middle;flex-shrink:0;object-fit:contain">` : ''}
+            </span>
           </div>
-          <div class="match-meta">Real: ${actual.home !== null ? actual.home : '-'} x ${actual.away !== null ? actual.away : '-'}</div>
         </td>
         ${cells}
       </tr>
@@ -892,10 +899,103 @@ function renderBolaoMatchesTable(matches) {
   `;
 }
 
+function renderBolaoParticipant(participantName) {
+  const p = PARTICIPANTS.find(x => x.name === participantName);
+  if (!p) return '';
+  const data = getBolaoData();
+
+  const stageOrder = ['GROUP_STAGE','LAST_32','LAST_16','QUARTER_FINALS','SEMI_FINALS','THIRD_PLACE','FINAL'];
+  const sorted = [...allMatches].filter(m => {
+    const entry = data[m.id] || {};
+    const pal = entry[p.name] || {};
+    return pal.home !== undefined && pal.away !== undefined;
+  }).sort((a, b) => {
+    const si = stageOrder.indexOf(a.stage) - stageOrder.indexOf(b.stage);
+    if (si !== 0) return si;
+    if (a.matchday !== b.matchday) return (a.matchday || 0) - (b.matchday || 0);
+    return new Date(a.utcDate) - new Date(b.utcDate);
+  });
+
+  let lastStage = null;
+  let lastRound = null;
+  const rows = sorted.map(m => {
+    const actual = getEffectiveScore(m);
+    const entry = data[m.id] || {};
+    const palpite = entry[p.name] || {};
+    const pts = scorePalpite(actual, palpite);
+    let ptsClass = 'pts-pending';
+    let ptsLabel = '—';
+    if (pts === 3) { ptsClass = 'pts-3'; ptsLabel = '✅ 3'; }
+    else if (pts === 1) { ptsClass = 'pts-1'; ptsLabel = '🟡 1'; }
+    else if (pts === 0) { ptsClass = 'pts-0'; ptsLabel = '❌ 0'; }
+
+    let separator = '';
+    if (m.stage === 'GROUP_STAGE') {
+      const round = m.matchday || 0;
+      if (round !== lastRound) {
+        lastRound = round;
+        separator = `<tr class="bolao-round-header"><td colspan="3">⚽ ${ROUND_LABELS[round] || `Rodada ${round}`}</td></tr>`;
+      }
+    } else if (m.stage !== lastStage) {
+      lastStage = m.stage;
+      separator = `<tr class="bolao-round-header"><td colspan="3">🏆 ${STAGE_LABELS[m.stage] || m.stage}</td></tr>`;
+    }
+
+    const hFlag = m.homeTeam?.crest ? `<img src="${m.homeTeam.crest}" width="14" height="14" style="vertical-align:middle;flex-shrink:0;object-fit:contain">` : '';
+    const aFlag = m.awayTeam?.crest ? `<img src="${m.awayTeam.crest}" width="14" height="14" style="vertical-align:middle;flex-shrink:0;object-fit:contain">` : '';
+    const home = m.homeTeam?.shortName || m.homeTeam?.name || '?';
+    const away = m.awayTeam?.shortName || m.awayTeam?.name || '?';
+    const rH = actual.home !== null ? actual.home : '-';
+    const rA = actual.away !== null ? actual.away : '-';
+
+    const palpiteStr = (palpite.home !== undefined && palpite.away !== undefined)
+      ? `${palpite.home} x ${palpite.away}` : '—';
+
+    return `
+      ${separator}
+      <tr class="participant-detail-row">
+        <td class="participant-detail-match">
+          <div class="detail-confronto">
+            <span class="detail-home">${hFlag} <span>${home}</span></span>
+            <span class="detail-score">${rH} x ${rA}</span>
+            <span class="detail-away"><span>${away}</span> ${aFlag}</span>
+          </div>
+          <div class="match-meta">${formatDateTime(m.utcDate)}</div>
+        </td>
+        <td class="participant-detail-palpite">${palpiteStr}</td>
+        <td class="participant-cell ${ptsClass}" style="text-align:center;font-weight:700">${ptsLabel}</td>
+      </tr>
+    `;
+  }).join('');
+
+  return `
+    <div class="participant-detail-header">
+      <button class="btn btn-back-participant" data-action="back-participant">← Voltar</button>
+      <span class="participant-tag" style="background:${p.color};font-size:1rem;padding:8px 20px">${p.fullName || p.name}</span>
+    </div>
+    <div class="bolao-wrap" style="margin-top:16px">
+      <table class="bolao-table" style="table-layout:fixed">
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:10px 12px;width:60%">Confronto</th>
+            <th style="text-align:center;background:${p.color};color:#fff;padding:10px 12px;width:25%">Palpite</th>
+            <th style="text-align:center;padding:10px 12px;width:15%">Pts</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `;
+}
+
 function renderBolaoContent() {
+  if (activeBolaoParticipant) {
+    return renderBolaoParticipant(activeBolaoParticipant);
+  }
+
   if (activeBolaoTab === 'GERAL') {
     return `
-      <h3 class="bolao-phase-title">Ranking Geral</h3>
+      <h3 class="bolao-phase-title">Ranking Geral — clique em um nome para ver os palpites</h3>
       <div id="bolaoRanking">${renderBolaoRanking()}</div>
     `;
   }
@@ -973,13 +1073,34 @@ els.tabs.addEventListener('click', (e) => {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   btn.classList.add('active');
   activeStage = btn.dataset.stage;
+  activeBolaoParticipant = null;
   render();
 });
 
 els.content.addEventListener('click', (e) => {
+  // Back button from individual participant view
+  if (e.target.closest('[data-action="back-participant"]')) {
+    activeBolaoParticipant = null;
+    document.getElementById('bolaoContent').innerHTML = renderBolaoContent();
+    return;
+  }
+
+  // Click on participant name in ranking → open individual view
+  const tag = e.target.closest('.participant-tag');
+  if (tag && e.target.closest('#bolaoRanking')) {
+    const fullName = tag.textContent.trim();
+    const p = PARTICIPANTS.find(x => (x.fullName || x.name) === fullName);
+    if (p) {
+      activeBolaoParticipant = p.name;
+      document.getElementById('bolaoContent').innerHTML = renderBolaoContent();
+      return;
+    }
+  }
+
   const subTab = e.target.closest('.bolao-sub-tab');
   if (!subTab) return;
   activeBolaoTab = subTab.dataset.tab;
+  activeBolaoParticipant = null;
   document.querySelectorAll('.bolao-sub-tab').forEach(t => t.classList.remove('active'));
   subTab.classList.add('active');
   document.getElementById('bolaoContent').innerHTML = renderBolaoContent();
