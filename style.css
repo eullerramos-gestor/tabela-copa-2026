@@ -496,6 +496,8 @@ tr:last-child td {
   color: var(--text);
   vertical-align: top;
   white-space: normal;
+  overflow: hidden;
+  max-width: 0;
 }
 
 .confronto-teams {
@@ -506,7 +508,11 @@ tr:last-child td {
 }
 
 .confronto-teams .team {
-  flex: none;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .confronto-teams .vs {
