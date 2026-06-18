@@ -471,17 +471,24 @@ tr:last-child td {
   border: 1px solid var(--border);
 }
 
+.bolao-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
 .bolao-table .confronto-col {
   color: #fff;
   background: var(--panel-light);
   text-align: left;
-  min-width: 240px;
+  width: 22%;
+  min-width: 160px;
 }
 
 .bolao-table th.participant-col {
   color: #fff;
   text-align: center;
-  min-width: 90px;
+  width: calc(78% / 8);
+  min-width: 60px;
 }
 
 .confronto-cell {
@@ -532,7 +539,18 @@ tr:last-child td {
 }
 
 .bolao-inputs .score-input {
-  width: 32px;
+  width: 26px;
+  padding: 3px 2px;
+  font-size: 0.85rem;
+}
+
+.bolao-table th.participant-col,
+.bolao-table td.participant-cell {
+  font-size: 0.8rem;
+}
+
+.bolao-table th.participant-col {
+  padding: 8px 4px;
 }
 
 .participant-cell.pts-3 {
