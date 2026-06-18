@@ -27,7 +27,8 @@ const PARTICIPANTS = [
   { name: 'Basilio', color: '#be185d' },
   { name: 'Douglas', color: '#6d28d9' },
   { name: 'Euller', color: '#b91c1c' },
-  { name: 'Reiner', color: '#0e7490' }
+  { name: 'Reiner', color: '#0e7490' },
+  { name: 'Pedroka', color: '#ea580c' }
 ];
 
 const BOLAO_SEED = [
@@ -55,6 +56,33 @@ const BOLAO_SEED = [
   { home: 'Uzbequistão', away: 'Colômbia', palpites: { Weverthon: '1x2', Marcos: '0x2', Welsirley: '1x2', Basilio: '0x2', Douglas: '0x2', Euller: '0x2', Reiner: '0x2' } },
   { home: 'Inglaterra', away: 'Croácia', palpites: { Weverthon: '2x2', Marcos: '2x1', Welsirley: '3x3', Basilio: '2x1', Douglas: '2x1', Euller: '2x1', Reiner: '3x2' } },
   { home: 'Gana', away: 'Panamá', palpites: { Weverthon: '2x1', Marcos: '3x1', Welsirley: '4x1', Basilio: '2x0', Douglas: '3x0', Euller: '0x1', Reiner: '2x0' } }
+];
+
+const BOLAO_SEED_R2 = [
+  { home: 'Rep. Tcheca', away: 'África do Sul', palpites: { Douglas: '2x1', Euller: '1x0', Reiner: '1x1', Pedroka: '2x0' } },
+  { home: 'México', away: 'Coréia do Sul', palpites: { Douglas: '2x2', Euller: '1x2', Reiner: '2x1', Pedroka: '1x1' } },
+  { home: 'Suíça', away: 'Bósnia', palpites: { Douglas: '2x0', Euller: '0x0', Reiner: '2x1', Pedroka: '1x2' } },
+  { home: 'Canadá', away: 'Catar', palpites: { Douglas: '2x0', Euller: '2x0', Reiner: '2x0', Pedroka: '2x0' } },
+  { home: 'Brasil', away: 'Haiti', palpites: { Douglas: '3x0', Euller: '2x0', Reiner: '3x1', Pedroka: '4x0' } },
+  { home: 'Escócia', away: 'Marrocos', palpites: { Douglas: '0x2', Euller: '1x3', Reiner: '1x2', Pedroka: '0x2' } },
+  { home: 'EUA', away: 'Austrália', palpites: { Douglas: '1x2', Euller: '2x1', Reiner: '2x2', Pedroka: '1x1' } },
+  { home: 'Turquia', away: 'Paraguai', palpites: { Douglas: '2x1', Euller: '1x1', Reiner: '2x1', Pedroka: '2x0' } },
+  { home: 'Alemanha', away: 'Costa do Marfim', palpites: { Douglas: '3x1', Euller: '4x0', Reiner: '3x1', Pedroka: '6x1' } },
+  { home: 'Equador', away: 'Curaçao', palpites: { Douglas: '3x0', Euller: '3x0', Reiner: '3x0', Pedroka: '2x1' } },
+  { home: 'Holanda', away: 'Suécia', palpites: { Douglas: '3x1', Euller: '3x2', Reiner: '3x2', Pedroka: '3x2' } },
+  { home: 'Tunísia', away: 'Japão', palpites: { Douglas: '0x2', Euller: '0x2', Reiner: '0x2', Pedroka: '1x3' } },
+  { home: 'Bélgica', away: 'Irã', palpites: { Douglas: '2x0', Euller: '2x1', Reiner: '2x0', Pedroka: '3x0' } },
+  { home: 'Nova Zelândia', away: 'Egito', palpites: { Douglas: '1x1', Euller: '0x1', Reiner: '0x1', Pedroka: '2x2' } },
+  { home: 'Espanha', away: 'Arábia Saudita', palpites: { Douglas: '3x1', Euller: '3x0', Reiner: '3x0', Pedroka: '3x0' } },
+  { home: 'Uruguai', away: 'Cabo Verde', palpites: { Douglas: '3x0', Euller: '2x0', Reiner: '2x0', Pedroka: '1x1' } },
+  { home: 'França', away: 'Iraque', palpites: { Douglas: '6x0', Euller: '5x1', Reiner: '4x0', Pedroka: '6x0' } },
+  { home: 'Noruega', away: 'Senegal', palpites: { Douglas: '1x2', Euller: '2x0', Reiner: '2x2', Pedroka: '2x2' } },
+  { home: 'Argentina', away: 'Áustria', palpites: { Douglas: '2x1', Euller: '3x1', Reiner: '2x1', Pedroka: '4x0' } },
+  { home: 'Jordânia', away: 'Argélia', palpites: { Douglas: '1x2', Euller: '0x0', Reiner: '1x2', Pedroka: '0x2' } },
+  { home: 'Portugal', away: 'Uzbequistão', palpites: { Douglas: '4x0', Euller: '2x0', Reiner: '3x0', Pedroka: '4x0' } },
+  { home: 'Colômbia', away: 'RD Congo', palpites: { Douglas: '3x0', Euller: '2x0', Reiner: '2x0', Pedroka: '3x0' } },
+  { home: 'Inglaterra', away: 'Gana', palpites: { Douglas: '2x1', Euller: '3x0', Reiner: '3x1', Pedroka: '3x0' } },
+  { home: 'Panamá', away: 'Croácia', palpites: { Douglas: '0x2', Euller: '0x2', Reiner: '0x2', Pedroka: '0x4' } },
 ];
 
 const TEAM_ALIASES = {
@@ -129,6 +157,7 @@ const READ_ONLY = !['localhost', '127.0.0.1', ''].includes(location.hostname);
 
 let allMatches = [];
 let activeStage = 'GROUP_STAGE';
+let activeBolaoTab = 'GERAL';
 let autoRefreshTimer = null;
 let remoteData = { scores: {}, bolao: {} };
 
@@ -247,7 +276,7 @@ function seedBolaoData() {
   const data = getBolaoData();
   let changed = false;
 
-  BOLAO_SEED.forEach(seed => {
+  [...BOLAO_SEED, ...BOLAO_SEED_R2].forEach(seed => {
     const found = findApiMatchForSeed(seed);
     if (!found || data[found.match.id]) return;
 
@@ -680,12 +709,16 @@ function renderNextPhase() {
   `;
 }
 
-function renderBolaoRanking() {
+function renderBolaoRanking(stageFilter) {
   const data = getBolaoData();
   const totals = {};
   PARTICIPANTS.forEach(p => { totals[p.name] = { pts: 0, exatos: 0, acertos: 0, jogos: 0 }; });
 
-  allMatches.forEach(m => {
+  const matches = stageFilter
+    ? allMatches.filter(m => m.stage === stageFilter)
+    : allMatches;
+
+  matches.forEach(m => {
     const actual = getEffectiveScore(m);
     if (actual.home === null || actual.away === null) return;
     const entry = data[m.id] || {};
@@ -724,9 +757,8 @@ function renderBolaoRanking() {
   `;
 }
 
-function renderBolao() {
-  const matches = [...allMatches].sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
-  if (!matches.length) return '<p class="match-meta">Busque os confrontos para preencher o bolão.</p>';
+function renderBolaoMatchesTable(matches) {
+  if (!matches.length) return '<p class="match-meta">Sem jogos definidos para esta fase ainda.</p>';
 
   const data = getBolaoData();
   const headerCols = PARTICIPANTS.map(p => `<th class="participant-col" style="background:${p.color}">${p.name}</th>`).join('');
@@ -776,17 +808,60 @@ function renderBolao() {
   }).join('');
 
   return `
-    <p class="match-meta">
-      3 pontos por placar exato, 1 ponto por acertar o vencedor (mesmo com placar diferente) ou por acertar
-      que o jogo terminaria empatado (independente do placar exato).
-    </p>
-    <div id="bolaoRanking">${renderBolaoRanking()}</div>
     <div class="bolao-wrap">
       <table class="bolao-table">
         <thead><tr><th class="confronto-col">Confronto</th>${headerCols}</tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>
+  `;
+}
+
+function renderBolaoContent() {
+  if (activeBolaoTab === 'GERAL') {
+    return `
+      <h3 class="bolao-phase-title">Ranking Geral</h3>
+      <div id="bolaoRanking">${renderBolaoRanking()}</div>
+    `;
+  }
+
+  const stageMatches = allMatches
+    .filter(m => m.stage === activeBolaoTab)
+    .sort((a, b) => new Date(a.utcDate) - new Date(b.utcDate));
+
+  const label = STAGE_LABELS[activeBolaoTab] || activeBolaoTab;
+
+  return `
+    <h3 class="bolao-phase-title">Ranking — ${label}</h3>
+    <div id="bolaoRanking">${renderBolaoRanking(activeBolaoTab)}</div>
+    <h3 class="bolao-phase-title">Palpites — ${label}</h3>
+    ${renderBolaoMatchesTable(stageMatches)}
+  `;
+}
+
+function renderBolao() {
+  if (!allMatches.length) return '<p class="match-meta">Busque os confrontos para preencher o bolão.</p>';
+
+  const subTabs = [
+    { id: 'GERAL', label: 'Ranking Geral' },
+    { id: 'GROUP_STAGE', label: 'Fase de Grupos' },
+    { id: 'LAST_16', label: 'Oitavas de Final' },
+    { id: 'QUARTER_FINALS', label: 'Quartas de Final' },
+    { id: 'SEMI_FINALS', label: 'Semifinais' },
+    { id: 'THIRD_PLACE', label: '3º Lugar' },
+    { id: 'FINAL', label: 'Final' },
+  ];
+
+  const subTabsHtml = subTabs.map(t => `
+    <button class="bolao-sub-tab${activeBolaoTab === t.id ? ' active' : ''}" data-tab="${t.id}">${t.label}</button>
+  `).join('');
+
+  return `
+    <p class="match-meta">
+      3 pontos por placar exato · 1 ponto por acertar o vencedor ou o empate · 0 por erro
+    </p>
+    <nav class="bolao-sub-tabs">${subTabsHtml}</nav>
+    <div id="bolaoContent">${renderBolaoContent()}</div>
   `;
 }
 
@@ -824,6 +899,15 @@ els.tabs.addEventListener('click', (e) => {
   btn.classList.add('active');
   activeStage = btn.dataset.stage;
   render();
+});
+
+els.content.addEventListener('click', (e) => {
+  const subTab = e.target.closest('.bolao-sub-tab');
+  if (!subTab) return;
+  activeBolaoTab = subTab.dataset.tab;
+  document.querySelectorAll('.bolao-sub-tab').forEach(t => t.classList.remove('active'));
+  subTab.classList.add('active');
+  document.getElementById('bolaoContent').innerHTML = renderBolaoContent();
 });
 
 els.content.addEventListener('input', (e) => {

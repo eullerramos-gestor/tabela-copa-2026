@@ -6998,6 +6998,438 @@
         "home": 2,
         "away": 0
       }
+    },
+    "537329": {
+      "Reiner": {
+        "home": 1,
+        "away": 1
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 1
+      },
+      "Euller": {
+        "home": 1,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    "537330": {
+      "Reiner": {
+        "home": 2,
+        "away": 1
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 2
+      },
+      "Euller": {
+        "home": 1,
+        "away": 2
+      },
+      "Pedroka": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    "537335": {
+      "Reiner": {
+        "home": 2,
+        "away": 1
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 0
+      },
+      "Euller": {
+        "home": 0,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 1,
+        "away": 2
+      }
+    },
+    "537336": {
+      "Reiner": {
+        "home": 2,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 0
+      },
+      "Euller": {
+        "home": 2,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    "537342": {
+      "Reiner": {
+        "home": 1,
+        "away": 2
+      },
+      "Douglas": {
+        "home": 0,
+        "away": 2
+      },
+      "Euller": {
+        "home": 1,
+        "away": 3
+      },
+      "Pedroka": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    "537341": {
+      "Reiner": {
+        "home": 3,
+        "away": 1
+      },
+      "Douglas": {
+        "home": 3,
+        "away": 0
+      },
+      "Euller": {
+        "home": 2,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 4,
+        "away": 0
+      }
+    },
+    "537348": {
+      "Reiner": {
+        "home": 2,
+        "away": 2
+      },
+      "Douglas": {
+        "home": 1,
+        "away": 2
+      },
+      "Euller": {
+        "home": 2,
+        "away": 1
+      },
+      "Pedroka": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    "537347": {
+      "Reiner": {
+        "home": 2,
+        "away": 1
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 1
+      },
+      "Euller": {
+        "home": 1,
+        "away": 1
+      },
+      "Pedroka": {
+        "home": 2,
+        "away": 0
+      }
+    },
+    "537353": {
+      "Reiner": {
+        "home": 3,
+        "away": 1
+      },
+      "Douglas": {
+        "home": 3,
+        "away": 1
+      },
+      "Euller": {
+        "home": 4,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 6,
+        "away": 1
+      }
+    },
+    "537354": {
+      "Reiner": {
+        "home": 3,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 3,
+        "away": 0
+      },
+      "Euller": {
+        "home": 3,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    "537359": {
+      "Reiner": {
+        "home": 3,
+        "away": 2
+      },
+      "Douglas": {
+        "home": 3,
+        "away": 1
+      },
+      "Euller": {
+        "home": 3,
+        "away": 2
+      },
+      "Pedroka": {
+        "home": 3,
+        "away": 2
+      }
+    },
+    "537360": {
+      "Reiner": {
+        "home": 0,
+        "away": 2
+      },
+      "Douglas": {
+        "home": 0,
+        "away": 2
+      },
+      "Euller": {
+        "home": 0,
+        "away": 2
+      },
+      "Pedroka": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    "537365": {
+      "Reiner": {
+        "home": 2,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 0
+      },
+      "Euller": {
+        "home": 2,
+        "away": 1
+      },
+      "Pedroka": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    "537366": {
+      "Reiner": {
+        "home": 0,
+        "away": 1
+      },
+      "Douglas": {
+        "home": 1,
+        "away": 1
+      },
+      "Euller": {
+        "home": 0,
+        "away": 1
+      },
+      "Pedroka": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    "537371": {
+      "Reiner": {
+        "home": 3,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 3,
+        "away": 1
+      },
+      "Euller": {
+        "home": 3,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    "537372": {
+      "Reiner": {
+        "home": 2,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 3,
+        "away": 0
+      },
+      "Euller": {
+        "home": 2,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 1,
+        "away": 1
+      }
+    },
+    "537393": {
+      "Reiner": {
+        "home": 4,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 6,
+        "away": 0
+      },
+      "Euller": {
+        "home": 5,
+        "away": 1
+      },
+      "Pedroka": {
+        "home": 6,
+        "away": 0
+      }
+    },
+    "537394": {
+      "Reiner": {
+        "home": 2,
+        "away": 2
+      },
+      "Douglas": {
+        "home": 1,
+        "away": 2
+      },
+      "Euller": {
+        "home": 2,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 2,
+        "away": 2
+      }
+    },
+    "537399": {
+      "Reiner": {
+        "home": 2,
+        "away": 1
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 1
+      },
+      "Euller": {
+        "home": 3,
+        "away": 1
+      },
+      "Pedroka": {
+        "home": 4,
+        "away": 0
+      }
+    },
+    "537400": {
+      "Reiner": {
+        "home": 1,
+        "away": 2
+      },
+      "Douglas": {
+        "home": 1,
+        "away": 2
+      },
+      "Euller": {
+        "home": 0,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    "537405": {
+      "Reiner": {
+        "home": 3,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 4,
+        "away": 0
+      },
+      "Euller": {
+        "home": 2,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 4,
+        "away": 0
+      }
+    },
+    "537406": {
+      "Reiner": {
+        "home": 2,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 3,
+        "away": 0
+      },
+      "Euller": {
+        "home": 2,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    "537411": {
+      "Reiner": {
+        "home": 3,
+        "away": 1
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 1
+      },
+      "Euller": {
+        "home": 3,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    "537412": {
+      "Reiner": {
+        "home": 0,
+        "away": 2
+      },
+      "Douglas": {
+        "home": 0,
+        "away": 2
+      },
+      "Euller": {
+        "home": 0,
+        "away": 2
+      },
+      "Pedroka": {
+        "home": 0,
+        "away": 4
+      }
     }
   },
   "updated": "2026-06-17T12:45:35.268Z"
