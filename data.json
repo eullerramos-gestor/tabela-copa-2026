@@ -6391,6 +6391,10 @@
       "Basilio": {
         "home": 2,
         "away": 0
+      },
+      "Weverthon": {
+        "home": 1,
+        "away": 2
       }
     },
     "537330": {
@@ -6417,6 +6421,10 @@
       "Basilio": {
         "home": 1,
         "away": 1
+      },
+      "Weverthon": {
+        "home": 2,
+        "away": 2
       }
     },
     "537333": {
@@ -6503,6 +6511,10 @@
       "Basilio": {
         "home": 2,
         "away": 1
+      },
+      "Weverthon": {
+        "home": 2,
+        "away": 0
       }
     },
     "537336": {
@@ -6529,6 +6541,10 @@
       "Basilio": {
         "home": 2,
         "away": 0
+      },
+      "Weverthon": {
+        "home": 2,
+        "away": 1
       }
     },
     "537339": {
@@ -6615,6 +6631,10 @@
       "Basilio": {
         "home": 4,
         "away": 0
+      },
+      "Weverthon": {
+        "home": 4,
+        "away": 1
       }
     },
     "537342": {
@@ -6641,6 +6661,10 @@
       "Basilio": {
         "home": 1,
         "away": 2
+      },
+      "Weverthon": {
+        "home": 1,
+        "away": 3
       }
     },
     "537345": {
@@ -6727,6 +6751,10 @@
       "Basilio": {
         "home": 2,
         "away": 1
+      },
+      "Weverthon": {
+        "home": 1,
+        "away": 2
       }
     },
     "537348": {
@@ -6753,6 +6781,10 @@
       "Basilio": {
         "home": 2,
         "away": 1
+      },
+      "Weverthon": {
+        "home": 2,
+        "away": 0
       }
     },
     "537351": {
@@ -6839,6 +6871,10 @@
       "Basilio": {
         "home": 3,
         "away": 0
+      },
+      "Weverthon": {
+        "home": 3,
+        "away": 0
       }
     },
     "537354": {
@@ -6865,6 +6901,10 @@
       "Basilio": {
         "home": 3,
         "away": 0
+      },
+      "Weverthon": {
+        "home": 3,
+        "away": 1
       }
     },
     "537357": {
@@ -6951,6 +6991,10 @@
       "Basilio": {
         "home": 2,
         "away": 1
+      },
+      "Weverthon": {
+        "home": 2,
+        "away": 1
       }
     },
     "537360": {
@@ -6976,6 +7020,10 @@
       },
       "Basilio": {
         "home": 0,
+        "away": 2
+      },
+      "Weverthon": {
+        "home": 1,
         "away": 2
       }
     },
@@ -7063,6 +7111,10 @@
       "Basilio": {
         "home": 2,
         "away": 0
+      },
+      "Weverthon": {
+        "home": 2,
+        "away": 0
       }
     },
     "537366": {
@@ -7088,6 +7140,10 @@
       },
       "Basilio": {
         "home": 1,
+        "away": 2
+      },
+      "Weverthon": {
+        "home": 2,
         "away": 2
       }
     },
@@ -7175,6 +7231,10 @@
       "Basilio": {
         "home": 3,
         "away": 0
+      },
+      "Weverthon": {
+        "home": 3,
+        "away": 0
       }
     },
     "537372": {
@@ -7201,6 +7261,10 @@
       "Basilio": {
         "home": 2,
         "away": 1
+      },
+      "Weverthon": {
+        "home": 2,
+        "away": 0
       }
     },
     "537391": {
@@ -7287,6 +7351,10 @@
       "Basilio": {
         "home": 4,
         "away": 0
+      },
+      "Weverthon": {
+        "home": 4,
+        "away": 0
       }
     },
     "537394": {
@@ -7311,6 +7379,10 @@
         "away": 2
       },
       "Basilio": {
+        "home": 2,
+        "away": 1
+      },
+      "Weverthon": {
         "home": 2,
         "away": 1
       }
@@ -7399,6 +7471,10 @@
       "Basilio": {
         "home": 2,
         "away": 1
+      },
+      "Weverthon": {
+        "home": 4,
+        "away": 0
       }
     },
     "537400": {
@@ -7425,6 +7501,10 @@
       "Basilio": {
         "home": 1,
         "away": 2
+      },
+      "Weverthon": {
+        "home": 1,
+        "away": 3
       }
     },
     "537403": {
@@ -7511,6 +7591,10 @@
       "Basilio": {
         "home": 2,
         "away": 0
+      },
+      "Weverthon": {
+        "home": 3,
+        "away": 0
       }
     },
     "537406": {
@@ -7537,6 +7621,10 @@
       "Basilio": {
         "home": 2,
         "away": 1
+      },
+      "Weverthon": {
+        "home": 2,
+        "away": 0
       }
     },
     "537409": {
@@ -7623,6 +7711,10 @@
       "Basilio": {
         "home": 3,
         "away": 0
+      },
+      "Weverthon": {
+        "home": 3,
+        "away": 1
       }
     },
     "537412": {
@@ -7648,6 +7740,10 @@
       },
       "Basilio": {
         "home": 0,
+        "away": 3
+      },
+      "Weverthon": {
+        "home": 1,
         "away": 3
       }
     }
