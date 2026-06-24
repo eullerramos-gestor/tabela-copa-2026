@@ -847,12 +847,9 @@ function renderBolaoMatchesTable(matches) {
   if (!matches.length) return '<p class="match-meta">Sem jogos definidos para esta fase ainda.</p>';
 
   const data = getBolaoData();
-  const totalCols = PARTICIPANTS.length + 1;
-  const headerCols = PARTICIPANTS.map(p => `<th class="participant-col" style="background:${p.color}">${p.name}</th>`).join('');
 
   let lastRound = null;
   let lastStage = null;
-  let firstSeparator = true;
   const rows = matches.map(m => {
     const actual = getEffectiveScore(m);
     const entry = data[m.id] || {};
@@ -881,27 +878,20 @@ function renderBolaoMatchesTable(matches) {
       ? (m.group || '').replace('GROUP_', 'Grupo ')
       : (STAGE_LABELS[m.stage] || formatStageLabel(m.stage));
 
-    const headerRow = `<tr class="bolao-repeat-header"><th class="confronto-col">Confronto</th>${headerCols}</tr>`;
+    const nameCells = PARTICIPANTS.map(p => `<td class="participant-col" style="background:${p.color}">${p.name}</td>`).join('');
 
     let separator = '';
-    let isNewSection = false;
     if (m.stage === 'GROUP_STAGE') {
       const round = m.matchday || 0;
       if (round !== lastRound) {
         lastRound = round;
-        isNewSection = true;
         const label = ROUND_LABELS[round] || `Rodada ${round}`;
-        separator = `<tr class="bolao-round-header"><td colspan="${totalCols}">⚽ ${label}</td></tr>`;
+        separator = `<tr class="bolao-round-header"><td class="confronto-col">⚽ ${label}</td>${nameCells}</tr>`;
       }
     } else if (m.stage !== lastStage) {
       lastStage = m.stage;
-      isNewSection = true;
       const label = STAGE_LABELS[m.stage] || formatStageLabel(m.stage);
-      separator = `<tr class="bolao-round-header"><td colspan="${totalCols}">🏆 ${label}</td></tr>`;
-    }
-    if (isNewSection) {
-      if (!firstSeparator) separator += headerRow;
-      firstSeparator = false;
+      separator = `<tr class="bolao-round-header"><td class="confronto-col">🏆 ${label}</td>${nameCells}</tr>`;
     }
 
     return `
@@ -929,7 +919,6 @@ function renderBolaoMatchesTable(matches) {
   return `
     <div class="bolao-wrap">
       <table class="bolao-table">
-        <thead><tr><th class="confronto-col">Confronto</th>${headerCols}</tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>

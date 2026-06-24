@@ -624,16 +624,10 @@ tr:last-child td {
   border-bottom: 2px solid #3b82f6;
 }
 
-.bolao-repeat-header th {
-  color: #fff;
+.bolao-round-header .participant-col {
   text-align: center;
   font-size: 0.8rem;
-  padding: 8px 4px;
-  background: var(--panel-light);
-}
-
-.bolao-repeat-header th.confronto-col {
-  text-align: left;
+  color: #fff;
 }
 
 .participant-cell {
