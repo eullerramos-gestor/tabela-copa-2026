@@ -140,6 +140,27 @@ const BOLAO_SEED_R3_BY_ID = [
   { id: 537413, palpites: { Weverthon:'0x4', Marcos:'1x4', Welsirley:'0x3', Basilio:'0x4', Douglas:'0x5', Euller:'0x3', Reiner:'0x4', Pedroka:'0x3' } },
 ];
 
+// 16 avos de final. Formato 'HxA', com sufixo '*h'/'*a' para indicar
+// a seleção (casa/fora) que o participante crava passando nos pênaltis.
+const BOLAO_SEED_R32_BY_ID = [
+  { id: 537417, palpites: { Weverthon:'1x2', Welsirley:'0x2', Basilio:'0x2', Douglas:'0x2', Euller:'1x3', Reiner:'0x2', Pedroka:'0x3' } },
+  { id: 537423, palpites: { Weverthon:'2x1', Welsirley:'2x0', Basilio:'2x0', Douglas:'3x1', Euller:'2x1', Reiner:'2x0', Pedroka:'3x1' } },
+  { id: 537415, palpites: { Weverthon:'3x1', Welsirley:'2x1', Basilio:'3x0', Douglas:'3x0', Euller:'2x0', Reiner:'3x0', Pedroka:'5x1' } },
+  { id: 537418, palpites: { Weverthon:'2x2*h', Welsirley:'2x2*h', Basilio:'2x1', Douglas:'2x1', Euller:'1x1*a', Reiner:'2x1', Pedroka:'2x1' } },
+  { id: 537424, palpites: { Weverthon:'1x2', Welsirley:'2x3', Basilio:'1x2', Douglas:'1x2', Euller:'1x3', Reiner:'1x3', Pedroka:'1x3' } },
+  { id: 537416, palpites: { Weverthon:'3x1', Welsirley:'4x0', Basilio:'3x0', Douglas:'3x0', Euller:'4x0', Reiner:'4x2', Pedroka:'4x1' } },
+  { id: 537425, palpites: { Weverthon:'2x1', Welsirley:'1x1*h', Basilio:'2x1', Douglas:'1x1*h', Euller:'1x1*h', Reiner:'2x2*h', Pedroka:'2x3' } },
+  { id: 537426, palpites: { Weverthon:'3x0', Welsirley:'2x0', Basilio:'3x0', Douglas:'3x0', Euller:'3x0', Reiner:'4x0', Pedroka:'2x1' } },
+  { id: 537422, palpites: { Weverthon:'2x1', Welsirley:'3x1', Basilio:'1x2', Douglas:'1x2', Euller:'2x1', Reiner:'1x1*h', Pedroka:'1x1*h' } },
+  { id: 537421, palpites: { Weverthon:'2x1', Welsirley:'2x1', Basilio:'3x1', Douglas:'2x1', Euller:'3x1', Reiner:'2x0', Pedroka:'2x3' } },
+  { id: 537420, palpites: { Weverthon:'2x0', Welsirley:'1x0', Basilio:'2x0', Douglas:'2x0', Euller:'4x1', Reiner:'3x0', Pedroka:'5x1' } },
+  { id: 537419, palpites: { Weverthon:'1x1*h', Welsirley:'1x1*h', Basilio:'1x1*a', Douglas:'2x1', Euller:'3x2', Reiner:'2x1', Pedroka:'3x1' } },
+  { id: 537429, palpites: { Weverthon:'2x1', Welsirley:'2x2*h', Basilio:'2x1', Douglas:'1x0', Euller:'2x0', Reiner:'2x0', Pedroka:'3x2' } },
+  { id: 537428, palpites: { Weverthon:'2x2*a', Welsirley:'1x2', Basilio:'1x1*h', Douglas:'2x1', Euller:'1x3', Reiner:'0x1', Pedroka:'2x0' } },
+  { id: 537427, palpites: { Weverthon:'3x0', Welsirley:'4x0', Basilio:'3x0', Douglas:'3x0', Euller:'4x0', Reiner:'3x0', Pedroka:'0x1' } },
+  { id: 537430, palpites: { Weverthon:'2x0', Welsirley:'3x2', Basilio:'2x0', Douglas:'2x1', Euller:'2x1', Reiner:'1x1*h', Pedroka:'2x0' } },
+];
+
 const TEAM_ALIASES = {
   'México': { primary: 'Mexico' },
   'África do Sul': { primary: 'South Africa' },
@@ -406,7 +427,7 @@ function seedBolaoData() {
     }
   });
 
-  [...BOLAO_SEED_R2_BY_ID, ...BOLAO_SEED_R3_BY_ID].forEach(({ id, palpites }) => {
+  [...BOLAO_SEED_R2_BY_ID, ...BOLAO_SEED_R3_BY_ID, ...BOLAO_SEED_R32_BY_ID].forEach(({ id, palpites }) => {
     const key = String(id);
     const entry = data[key] || {};
     let entryChanged = false;
@@ -415,8 +436,15 @@ function seedBolaoData() {
       if (entry[p.name]) return;
       const guess = palpites[p.name];
       if (!guess) return;
-      const [a, b] = guess.split('x').map(Number);
-      entry[p.name] = { home: a, away: b };
+      // Sufixo opcional '*h' / '*a' indica quem o participante crava nos pênaltis.
+      let pen;
+      let core = guess;
+      if (guess.endsWith('*h')) { pen = 'home'; core = guess.slice(0, -2); }
+      else if (guess.endsWith('*a')) { pen = 'away'; core = guess.slice(0, -2); }
+      const [a, b] = core.split('x').map(Number);
+      const pal = { home: a, away: b };
+      if (pen) pal.pen = pen;
+      entry[p.name] = pal;
       entryChanged = true;
     });
 
