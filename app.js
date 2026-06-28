@@ -263,6 +263,24 @@ function getEffectiveScore(match) {
   return { home, away };
 }
 
+// Retorna 'home' | 'away' | null — quem avançou nos pênaltis.
+// Prioriza a marcação manual (override) e, na falta, usa o vencedor da API
+// quando o jogo terminou empatado no tempo normal/prorrogação.
+function getEffectivePenWinner(match) {
+  const overrides = getScoreOverrides();
+  const ov = overrides[match.id] || {};
+  if (ov.penWinner === 'home' || ov.penWinner === 'away') return ov.penWinner;
+
+  const sc = match.score || {};
+  const ft = sc.fullTime || {};
+  const drawFt = ft.home !== null && ft.home !== undefined && ft.home === ft.away;
+  if (drawFt && sc.winner) {
+    if (sc.winner === 'HOME_TEAM') return 'home';
+    if (sc.winner === 'AWAY_TEAM') return 'away';
+  }
+  return null;
+}
+
 function normalizeTeamName(s) {
   return (s || '')
     .toLowerCase()
@@ -328,6 +346,40 @@ function saveBolaoEntry(matchId, participant, side, value) {
   localStorage.setItem('copa2026_bolao', JSON.stringify(data));
 }
 
+// Marca/desmarca a seleção que o participante acha que passa nos pênaltis.
+function togglePenPick(matchId, participant, side) {
+  const data = getBolaoData();
+  const entry = data[matchId] || {};
+  const palpite = entry[participant] || {};
+  palpite.pen = (palpite.pen === side) ? undefined : side;
+  if (palpite.pen === undefined) delete palpite.pen;
+  if (Object.keys(palpite).length === 0) {
+    delete entry[participant];
+  } else {
+    entry[participant] = palpite;
+  }
+  if (Object.keys(entry).length === 0) {
+    delete data[matchId];
+  } else {
+    data[matchId] = entry;
+  }
+  localStorage.setItem('copa2026_bolao', JSON.stringify(data));
+}
+
+// Marca/desmarca (manualmente) qual seleção realmente passou nos pênaltis.
+function toggleActualPenWinner(matchId, side) {
+  const overrides = getScoreOverrides();
+  const entry = overrides[matchId] || {};
+  entry.penWinner = (entry.penWinner === side) ? undefined : side;
+  if (entry.penWinner === undefined) delete entry.penWinner;
+  if (Object.keys(entry).length === 0) {
+    delete overrides[matchId];
+  } else {
+    overrides[matchId] = entry;
+  }
+  localStorage.setItem('copa2026_scores', JSON.stringify(overrides));
+}
+
 function seedBolaoData() {
   const data = getBolaoData();
   let changed = false;
@@ -377,15 +429,24 @@ function seedBolaoData() {
   if (changed) localStorage.setItem('copa2026_bolao', JSON.stringify(data));
 }
 
-function scorePalpite(actual, palpite) {
+function scorePalpite(actual, palpite, actualPenWinner) {
   if (actual.home === null || actual.away === null) return null;
   if (palpite.home === undefined || palpite.away === undefined) return 0;
 
-  if (actual.home === palpite.home && actual.away === palpite.away) return 3;
+  let pts;
+  if (actual.home === palpite.home && actual.away === palpite.away) {
+    pts = 3;
+  } else {
+    const actualResult = actual.home === actual.away ? 'draw' : (actual.home > actual.away ? 'home' : 'away');
+    const palpiteResult = palpite.home === palpite.away ? 'draw' : (palpite.home > palpite.away ? 'home' : 'away');
+    pts = actualResult === palpiteResult ? 1 : 0;
+  }
 
-  const actualResult = actual.home === actual.away ? 'draw' : (actual.home > actual.away ? 'home' : 'away');
-  const palpiteResult = palpite.home === palpite.away ? 'draw' : (palpite.home > palpite.away ? 'home' : 'away');
-  return actualResult === palpiteResult ? 1 : 0;
+  // Bônus de +1 por acertar quem passou nos pênaltis (soma sempre).
+  if (actualPenWinner && palpite.pen && palpite.pen === actualPenWinner) {
+    pts += 1;
+  }
+  return pts;
 }
 
 function showStatus(message, type) {
@@ -801,9 +862,10 @@ function renderBolaoRanking(stageFilter) {
   matches.forEach(m => {
     const actual = getEffectiveScore(m);
     if (actual.home === null || actual.away === null) return;
+    const penWinner = getEffectivePenWinner(m);
     const entry = data[m.id] || {};
     PARTICIPANTS.forEach(p => {
-      const pts = scorePalpite(actual, entry[p.name] || {});
+      const pts = scorePalpite(actual, entry[p.name] || {}, penWinner);
       if (pts === null) return;
       totals[p.name].jogos++;
       totals[p.name].pts += pts;
@@ -852,17 +914,27 @@ function renderBolaoMatchesTable(matches) {
   let lastStage = null;
   const rows = matches.map(m => {
     const actual = getEffectiveScore(m);
+    const penWinner = getEffectivePenWinner(m);
+    const isKnockout = m.stage !== 'GROUP_STAGE';
     const entry = data[m.id] || {};
 
     const cells = PARTICIPANTS.map(p => {
       const palpite = entry[p.name] || {};
-      const pts = scorePalpite(actual, palpite);
+      const pts = scorePalpite(actual, palpite, penWinner);
       let ptsClass = 'pts-pending';
-      if (pts === 3) ptsClass = 'pts-3';
+      if (pts >= 3) ptsClass = 'pts-3';
+      else if (pts === 2) ptsClass = 'pts-2';
       else if (pts === 1) ptsClass = 'pts-1';
       else if (pts === 0) ptsClass = 'pts-0';
 
       const ro = READ_ONLY ? 'disabled' : '';
+      const pen = palpite.pen;
+      const penRow = isKnockout ? `
+        <div class="pen-row" title="Quem passa nos pênaltis (vale +1)">
+          <span class="pen-star${pen === 'home' ? ' on' : ''}" data-pen-match="${m.id}" data-pen-participant="${p.name}" data-pen-side="home">★</span>
+          <span class="pen-sep">pên</span>
+          <span class="pen-star${pen === 'away' ? ' on' : ''}" data-pen-match="${m.id}" data-pen-participant="${p.name}" data-pen-side="away">★</span>
+        </div>` : '';
       return `
         <td class="participant-cell ${ptsClass}">
           <div class="bolao-inputs">
@@ -870,6 +942,7 @@ function renderBolaoMatchesTable(matches) {
             <span class="dash">x</span>
             <input type="number" min="0" class="score-input bolao-input" data-match-id="${m.id}" data-participant="${p.name}" data-side="away" value="${palpite.away !== undefined ? palpite.away : ''}" placeholder="-" ${ro}>
           </div>
+          ${penRow}
         </td>
       `;
     }).join('');
@@ -902,14 +975,20 @@ function renderBolaoMatchesTable(matches) {
           <div class="detail-confronto" style="margin-top:4px">
             <span class="detail-home">
               ${m.homeTeam?.crest ? `<img src="${m.homeTeam.crest}" width="14" height="14" style="vertical-align:middle;flex-shrink:0;object-fit:contain">` : ''}
-              <span>${m.homeTeam?.shortName || m.homeTeam?.name || '?'}</span>
+              <span>${m.homeTeam?.shortName || m.homeTeam?.name || '?'}${penWinner === 'home' ? '<span class="pen-mark">*</span>' : ''}</span>
             </span>
             <span class="detail-score">${actual.home !== null ? actual.home : '-'} x ${actual.away !== null ? actual.away : '-'}</span>
             <span class="detail-away">
-              <span>${m.awayTeam?.shortName || m.awayTeam?.name || '?'}</span>
+              <span>${m.awayTeam?.shortName || m.awayTeam?.name || '?'}${penWinner === 'away' ? '<span class="pen-mark">*</span>' : ''}</span>
               ${m.awayTeam?.crest ? `<img src="${m.awayTeam.crest}" width="14" height="14" style="vertical-align:middle;flex-shrink:0;object-fit:contain">` : ''}
             </span>
           </div>
+          ${isKnockout && !READ_ONLY ? `
+          <div class="pen-actual" title="Marque quem passou nos pênaltis (resultado real)">
+            <span class="pen-actual-label">Passou nos pênaltis:</span>
+            <button class="pen-actual-btn${penWinner === 'home' ? ' on' : ''}" data-penwin-match="${m.id}" data-penwin-side="home">${m.homeTeam?.shortName || m.homeTeam?.name || 'Casa'}</button>
+            <button class="pen-actual-btn${penWinner === 'away' ? ' on' : ''}" data-penwin-match="${m.id}" data-penwin-side="away">${m.awayTeam?.shortName || m.awayTeam?.name || 'Fora'}</button>
+          </div>` : ''}
         </td>
         ${cells}
       </tr>
@@ -946,12 +1025,14 @@ function renderBolaoParticipant(participantName) {
   let lastRound = null;
   const rows = sorted.map(m => {
     const actual = getEffectiveScore(m);
+    const penWinner = getEffectivePenWinner(m);
     const entry = data[m.id] || {};
     const palpite = entry[p.name] || {};
-    const pts = scorePalpite(actual, palpite);
+    const pts = scorePalpite(actual, palpite, penWinner);
     let ptsClass = 'pts-pending';
     let ptsLabel = '—';
-    if (pts === 3) { ptsClass = 'pts-3'; ptsLabel = '✅ 3'; }
+    if (pts >= 3) { ptsClass = 'pts-3'; ptsLabel = `✅ ${pts}`; }
+    else if (pts === 2) { ptsClass = 'pts-2'; ptsLabel = '🟢 2'; }
     else if (pts === 1) { ptsClass = 'pts-1'; ptsLabel = '🟡 1'; }
     else if (pts === 0) { ptsClass = 'pts-0'; ptsLabel = '❌ 0'; }
 
@@ -974,17 +1055,19 @@ function renderBolaoParticipant(participantName) {
     const rH = actual.home !== null ? actual.home : '-';
     const rA = actual.away !== null ? actual.away : '-';
 
+    const ph = palpite.home !== undefined ? `${palpite.home}${palpite.pen === 'home' ? '*' : ''}` : '';
+    const pa = palpite.away !== undefined ? `${palpite.away}${palpite.pen === 'away' ? '*' : ''}` : '';
     const palpiteStr = (palpite.home !== undefined && palpite.away !== undefined)
-      ? `${palpite.home} x ${palpite.away}` : '—';
+      ? `${ph} x ${pa}` : '—';
 
     return `
       ${separator}
       <tr class="participant-detail-row">
         <td class="participant-detail-match">
           <div class="detail-confronto">
-            <span class="detail-home">${hFlag} <span>${home}</span></span>
+            <span class="detail-home">${hFlag} <span>${home}${penWinner === 'home' ? '<span class="pen-mark">*</span>' : ''}</span></span>
             <span class="detail-score">${rH} x ${rA}</span>
-            <span class="detail-away"><span>${away}</span> ${aFlag}</span>
+            <span class="detail-away"><span>${away}${penWinner === 'away' ? '<span class="pen-mark">*</span>' : ''}</span> ${aFlag}</span>
           </div>
           <div class="match-meta">${formatDateTime(m.utcDate)}</div>
         </td>
@@ -1112,6 +1195,22 @@ els.content.addEventListener('click', (e) => {
     return;
   }
 
+  // Marcar palpite de quem passa nos pênaltis (estrela na célula do participante)
+  const penStar = e.target.closest('.pen-star');
+  if (penStar && !READ_ONLY) {
+    togglePenPick(penStar.dataset.penMatch, penStar.dataset.penParticipant, penStar.dataset.penSide);
+    document.getElementById('bolaoContent').innerHTML = renderBolaoContent();
+    return;
+  }
+
+  // Marcar (resultado real) quem passou nos pênaltis
+  const penWinBtn = e.target.closest('.pen-actual-btn');
+  if (penWinBtn && !READ_ONLY) {
+    toggleActualPenWinner(penWinBtn.dataset.penwinMatch, penWinBtn.dataset.penwinSide);
+    document.getElementById('bolaoContent').innerHTML = renderBolaoContent();
+    return;
+  }
+
   // Click on participant name in ranking → open individual view
   const tag = e.target.closest('.participant-tag');
   if (tag && e.target.closest('#bolaoRanking')) {
@@ -1143,11 +1242,12 @@ els.content.addEventListener('input', (e) => {
     const match = allMatches.find(m => String(m.id) === String(matchId));
     if (match) {
       const actual = getEffectiveScore(match);
+      const penWinner = getEffectivePenWinner(match);
       const palpite = (getBolaoData()[matchId] || {})[participant] || {};
-      const pts = scorePalpite(actual, palpite);
+      const pts = scorePalpite(actual, palpite, penWinner);
       const cell = bolaoInput.closest('.participant-cell');
-      cell.classList.remove('pts-pending', 'pts-3', 'pts-1', 'pts-0');
-      cell.classList.add(pts === 3 ? 'pts-3' : pts === 1 ? 'pts-1' : pts === 0 ? 'pts-0' : 'pts-pending');
+      cell.classList.remove('pts-pending', 'pts-3', 'pts-2', 'pts-1', 'pts-0');
+      cell.classList.add(pts >= 3 ? 'pts-3' : pts === 2 ? 'pts-2' : pts === 1 ? 'pts-1' : pts === 0 ? 'pts-0' : 'pts-pending');
     }
 
     const rankingDiv = els.content.querySelector('#bolaoRanking');

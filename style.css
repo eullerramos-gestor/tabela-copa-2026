@@ -661,12 +661,96 @@ tr:last-child td {
   background: rgba(34, 197, 94, 0.25);
 }
 
+.participant-cell.pts-2 {
+  background: rgba(34, 197, 94, 0.16);
+}
+
 .participant-cell.pts-1 {
   background: rgba(245, 158, 11, 0.2);
 }
 
 .participant-cell.pts-0 {
   background: rgba(239, 68, 68, 0.18);
+}
+
+/* Pênaltis no bolão */
+.pen-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 3px;
+}
+
+.pen-star {
+  cursor: pointer;
+  color: var(--text-muted);
+  opacity: 0.4;
+  font-size: 0.85rem;
+  line-height: 1;
+  user-select: none;
+  transition: opacity 0.12s, color 0.12s, transform 0.12s;
+}
+
+.pen-star:hover {
+  opacity: 0.8;
+  transform: scale(1.2);
+}
+
+.pen-star.on {
+  color: #fbbf24;
+  opacity: 1;
+  text-shadow: 0 0 6px rgba(251, 191, 36, 0.6);
+}
+
+.read-only .pen-star {
+  cursor: default;
+}
+
+.pen-sep {
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pen-mark {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+.pen-actual {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.pen-actual-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.pen-actual-btn {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.pen-actual-btn:hover {
+  border-color: #fbbf24;
+}
+
+.pen-actual-btn.on {
+  background: #fbbf24;
+  border-color: #fbbf24;
+  color: #1f2937;
+  font-weight: 700;
 }
 
 .knockout-list {
