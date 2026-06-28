@@ -1046,6 +1046,7 @@ function renderBolao() {
   const subTabs = [
     { id: 'GERAL', label: 'Ranking Geral' },
     { id: 'GROUP_STAGE', label: 'Fase de Grupos' },
+    { id: 'LAST_32', label: '16 Avos de Final' },
     { id: 'LAST_16', label: 'Oitavas de Final' },
     { id: 'QUARTER_FINALS', label: 'Quartas de Final' },
     { id: 'SEMI_FINALS', label: 'Semifinais' },
