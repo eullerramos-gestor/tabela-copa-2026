@@ -143,22 +143,22 @@ const BOLAO_SEED_R3_BY_ID = [
 // 16 avos de final. Formato 'HxA', com sufixo '*h'/'*a' para indicar
 // a seleção (casa/fora) que o participante crava passando nos pênaltis.
 const BOLAO_SEED_R32_BY_ID = [
-  { id: 537417, palpites: { Weverthon:'1x2', Welsirley:'0x2', Basilio:'0x2', Douglas:'0x2', Euller:'1x3', Reiner:'0x2', Pedroka:'0x3' } },
-  { id: 537423, palpites: { Weverthon:'2x1', Welsirley:'2x0', Basilio:'2x0', Douglas:'3x1', Euller:'2x1', Reiner:'2x0', Pedroka:'3x1' } },
-  { id: 537415, palpites: { Weverthon:'3x1', Welsirley:'2x1', Basilio:'3x0', Douglas:'3x0', Euller:'2x0', Reiner:'3x0', Pedroka:'5x1' } },
-  { id: 537418, palpites: { Weverthon:'2x2*h', Welsirley:'2x2*h', Basilio:'2x1', Douglas:'2x1', Euller:'1x1*a', Reiner:'2x1', Pedroka:'2x1' } },
-  { id: 537424, palpites: { Weverthon:'1x2', Welsirley:'2x3', Basilio:'1x2', Douglas:'1x2', Euller:'1x3', Reiner:'1x3', Pedroka:'1x3' } },
-  { id: 537416, palpites: { Weverthon:'3x1', Welsirley:'4x0', Basilio:'3x0', Douglas:'3x0', Euller:'4x0', Reiner:'4x2', Pedroka:'4x1' } },
-  { id: 537425, palpites: { Weverthon:'2x1', Welsirley:'1x1*h', Basilio:'2x1', Douglas:'1x1*h', Euller:'1x1*h', Reiner:'2x2*h', Pedroka:'2x3' } },
-  { id: 537426, palpites: { Weverthon:'3x0', Welsirley:'2x0', Basilio:'3x0', Douglas:'3x0', Euller:'3x0', Reiner:'4x0', Pedroka:'2x1' } },
-  { id: 537422, palpites: { Weverthon:'2x1', Welsirley:'3x1', Basilio:'1x2', Douglas:'1x2', Euller:'2x1', Reiner:'1x1*h', Pedroka:'1x1*h' } },
-  { id: 537421, palpites: { Weverthon:'2x1', Welsirley:'2x1', Basilio:'3x1', Douglas:'2x1', Euller:'3x1', Reiner:'2x0', Pedroka:'2x3' } },
-  { id: 537420, palpites: { Weverthon:'2x0', Welsirley:'1x0', Basilio:'2x0', Douglas:'2x0', Euller:'4x1', Reiner:'3x0', Pedroka:'5x1' } },
-  { id: 537419, palpites: { Weverthon:'1x1*h', Welsirley:'1x1*h', Basilio:'1x1*a', Douglas:'2x1', Euller:'3x2', Reiner:'2x1', Pedroka:'3x1' } },
-  { id: 537429, palpites: { Weverthon:'2x1', Welsirley:'2x2*h', Basilio:'2x1', Douglas:'1x0', Euller:'2x0', Reiner:'2x0', Pedroka:'3x2' } },
-  { id: 537428, palpites: { Weverthon:'2x2*a', Welsirley:'1x2', Basilio:'1x1*h', Douglas:'2x1', Euller:'1x3', Reiner:'0x1', Pedroka:'2x0' } },
-  { id: 537427, palpites: { Weverthon:'3x0', Welsirley:'4x0', Basilio:'3x0', Douglas:'3x0', Euller:'4x0', Reiner:'3x0', Pedroka:'0x1' } },
-  { id: 537430, palpites: { Weverthon:'2x0', Welsirley:'3x2', Basilio:'2x0', Douglas:'2x1', Euller:'2x1', Reiner:'1x1*h', Pedroka:'2x0' } },
+  { id: 537417, palpites: { Weverthon:'1x2', Marcos:'1x2', Welsirley:'0x2', Basilio:'0x2', Douglas:'0x2', Euller:'1x3', Reiner:'0x2', Pedroka:'0x3' } },
+  { id: 537423, palpites: { Weverthon:'2x1', Marcos:'2x0', Welsirley:'2x0', Basilio:'2x0', Douglas:'3x1', Euller:'2x1', Reiner:'2x0', Pedroka:'3x1' } },
+  { id: 537415, palpites: { Weverthon:'3x1', Marcos:'2x1', Welsirley:'2x1', Basilio:'3x0', Douglas:'3x0', Euller:'2x0', Reiner:'3x0', Pedroka:'5x1' } },
+  { id: 537418, palpites: { Weverthon:'2x2*h', Marcos:'2x2*a', Welsirley:'2x2*h', Basilio:'2x1', Douglas:'2x1', Euller:'1x1*a', Reiner:'2x1', Pedroka:'2x1' } },
+  { id: 537424, palpites: { Weverthon:'1x2', Marcos:'2x2*h', Welsirley:'2x3', Basilio:'1x2', Douglas:'1x2', Euller:'1x3', Reiner:'1x3', Pedroka:'1x3' } },
+  { id: 537416, palpites: { Weverthon:'3x1', Marcos:'3x0', Welsirley:'4x0', Basilio:'3x0', Douglas:'3x0', Euller:'4x0', Reiner:'4x2', Pedroka:'4x1' } },
+  { id: 537425, palpites: { Weverthon:'2x1', Marcos:'1x2', Welsirley:'1x1*h', Basilio:'2x1', Douglas:'1x1*h', Euller:'1x1*h', Reiner:'2x2*h', Pedroka:'2x3' } },
+  { id: 537426, palpites: { Weverthon:'3x0', Marcos:'3x1', Welsirley:'2x0', Basilio:'3x0', Douglas:'3x0', Euller:'3x0', Reiner:'4x0', Pedroka:'2x1' } },
+  { id: 537422, palpites: { Weverthon:'2x1', Marcos:'1x1*h', Welsirley:'3x1', Basilio:'1x2', Douglas:'1x2', Euller:'2x1', Reiner:'1x1*h', Pedroka:'1x1*h' } },
+  { id: 537421, palpites: { Weverthon:'2x1', Marcos:'2x1', Welsirley:'2x1', Basilio:'3x1', Douglas:'2x1', Euller:'3x1', Reiner:'2x0', Pedroka:'2x3' } },
+  { id: 537420, palpites: { Weverthon:'2x0', Marcos:'2x0', Welsirley:'1x0', Basilio:'2x0', Douglas:'2x0', Euller:'4x1', Reiner:'3x0', Pedroka:'5x1' } },
+  { id: 537419, palpites: { Weverthon:'1x1*h', Marcos:'3x2', Welsirley:'1x1*h', Basilio:'1x1*a', Douglas:'2x1', Euller:'3x2', Reiner:'2x1', Pedroka:'3x1' } },
+  { id: 537429, palpites: { Weverthon:'2x1', Marcos:'2x1', Welsirley:'2x2*h', Basilio:'2x1', Douglas:'1x0', Euller:'2x0', Reiner:'2x0', Pedroka:'3x2' } },
+  { id: 537428, palpites: { Weverthon:'2x2*a', Marcos:'1x2', Welsirley:'1x2', Basilio:'1x1*h', Douglas:'2x1', Euller:'1x3', Reiner:'0x1', Pedroka:'2x0' } },
+  { id: 537427, palpites: { Weverthon:'3x0', Marcos:'2x0', Welsirley:'4x0', Basilio:'3x0', Douglas:'3x0', Euller:'4x0', Reiner:'3x0', Pedroka:'0x1' } },
+  { id: 537430, palpites: { Weverthon:'2x0', Marcos:'3x1', Welsirley:'3x2', Basilio:'2x0', Douglas:'2x1', Euller:'2x1', Reiner:'1x1*h', Pedroka:'2x0' } },
 ];
 
 const TEAM_ALIASES = {
