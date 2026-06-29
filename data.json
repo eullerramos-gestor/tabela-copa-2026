@@ -4827,11 +4827,11 @@
       },
       "id": 537423,
       "utcDate": "2026-06-29T17:00:00Z",
-      "status": "TIMED",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-29T05:20:12Z",
+      "lastUpdated": "2026-06-29T19:09:03Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -4847,21 +4847,28 @@
         "crest": "https://crests.football-data.org/766.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 2,
+          "away": 1
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 1
         }
       },
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 11043,
+          "name": "Maurizio Mariani",
+          "type": "REFEREE",
+          "nationality": "Italy"
+        }
+      ]
     },
     {
       "area": {
@@ -4920,7 +4927,14 @@
       "odds": {
         "msg": "Activate Odds-Package in User-Panel to retrieve odds."
       },
-      "referees": []
+      "referees": [
+        {
+          "id": 289426,
+          "name": "Jalal Jayed",
+          "type": "REFEREE",
+          "nationality": "Morocco"
+        }
+      ]
     },
     {
       "area": {
@@ -8988,188 +9002,51 @@
         "away": 1
       }
     },
-    "537417": {
-      "Pedroka": {
-        "home": 0,
-        "away": 3
-      },
-      "Welsirley": {
-        "home": 0,
-        "away": 2
-      },
-      "Euller": {
-        "home": 1,
-        "away": 3
-      },
-      "Reiner": {
-        "home": 0,
-        "away": 2
-      },
-      "Douglas": {
-        "home": 0,
-        "away": 2
-      },
-      "Weverthon": {
-        "home": 1,
-        "away": 2
-      },
-      "Basilio": {
-        "home": 0,
-        "away": 2
-      },
-      "Marcos": {
-        "home": 1,
-        "away": 2
-      }
-    },
-    "537423": {
-      "Pedroka": {
-        "home": 3,
-        "away": 1
-      },
-      "Welsirley": {
-        "home": 2,
-        "away": 0
-      },
-      "Euller": {
-        "home": 2,
-        "away": 1
-      },
-      "Reiner": {
-        "home": 2,
-        "away": 0
-      },
-      "Douglas": {
-        "home": 3,
-        "away": 1
-      },
-      "Weverthon": {
-        "home": 2,
-        "away": 1
-      },
-      "Basilio": {
-        "home": 2,
-        "away": 0
-      },
-      "Marcos": {
-        "home": 2,
-        "away": 0
-      }
-    },
     "537415": {
+      "Weverthon": {
+        "home": 3,
+        "away": 1
+      },
+      "Welsirley": {
+        "home": 2,
+        "away": 1
+      },
+      "Basilio": {
+        "home": 3,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 3,
+        "away": 0
+      },
+      "Euller": {
+        "home": 2,
+        "away": 0
+      },
+      "Reiner": {
+        "home": 3,
+        "away": 0
+      },
       "Pedroka": {
         "home": 5,
         "away": 1
-      },
-      "Welsirley": {
-        "home": 2,
-        "away": 1
-      },
-      "Euller": {
-        "home": 2,
-        "away": 0
-      },
-      "Reiner": {
-        "home": 3,
-        "away": 0
-      },
-      "Douglas": {
-        "home": 3,
-        "away": 0
-      },
-      "Weverthon": {
-        "home": 3,
-        "away": 1
-      },
-      "Basilio": {
-        "home": 3,
-        "away": 0
-      },
-      "Marcos": {
-        "home": 2,
-        "away": 1
-      }
-    },
-    "537418": {
-      "Pedroka": {
-        "home": 2,
-        "away": 1
-      },
-      "Welsirley": {
-        "home": 2,
-        "away": 2,
-        "pen": "home"
-      },
-      "Euller": {
-        "home": 1,
-        "away": 1,
-        "pen": "away"
-      },
-      "Reiner": {
-        "home": 2,
-        "away": 1
-      },
-      "Douglas": {
-        "home": 2,
-        "away": 1
-      },
-      "Weverthon": {
-        "home": 2,
-        "away": 2,
-        "pen": "home"
-      },
-      "Basilio": {
-        "home": 2,
-        "away": 1
-      },
-      "Marcos": {
-        "home": 2,
-        "away": 2,
-        "pen": "away"
-      }
-    },
-    "537424": {
-      "Pedroka": {
-        "home": 1,
-        "away": 3
-      },
-      "Welsirley": {
-        "home": 2,
-        "away": 3
-      },
-      "Euller": {
-        "home": 1,
-        "away": 3
-      },
-      "Reiner": {
-        "home": 1,
-        "away": 3
-      },
-      "Douglas": {
-        "home": 1,
-        "away": 2
-      },
-      "Weverthon": {
-        "home": 1,
-        "away": 2
-      },
-      "Basilio": {
-        "home": 1,
-        "away": 2
-      },
-      "Marcos": {
-        "home": 2,
-        "away": 2,
-        "pen": "home"
       }
     },
     "537416": {
-      "Pedroka": {
-        "home": 4,
+      "Weverthon": {
+        "home": 3,
         "away": 1
       },
       "Welsirley": {
         "home": 4,
+        "away": 0
+      },
+      "Basilio": {
+        "home": 3,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 3,
         "away": 0
       },
       "Euller": {
@@ -9180,173 +9057,122 @@
         "home": 4,
         "away": 2
       },
-      "Douglas": {
-        "home": 3,
-        "away": 0
-      },
-      "Weverthon": {
-        "home": 3,
+      "Pedroka": {
+        "home": 4,
         "away": 1
-      },
-      "Basilio": {
-        "home": 3,
-        "away": 0
-      },
-      "Marcos": {
-        "home": 3,
-        "away": 0
       }
     },
-    "537425": {
-      "Pedroka": {
-        "home": 2,
-        "away": 3
+    "537417": {
+      "Weverthon": {
+        "home": 1,
+        "away": 2
       },
       "Welsirley": {
-        "home": 1,
-        "away": 1,
-        "pen": "home"
+        "home": 0,
+        "away": 2
+      },
+      "Basilio": {
+        "home": 0,
+        "away": 2
+      },
+      "Douglas": {
+        "home": 0,
+        "away": 2
       },
       "Euller": {
         "home": 1,
-        "away": 1,
-        "pen": "home"
+        "away": 3
       },
       "Reiner": {
+        "home": 0,
+        "away": 2
+      },
+      "Pedroka": {
+        "home": 0,
+        "away": 3
+      }
+    },
+    "537418": {
+      "Weverthon": {
         "home": 2,
         "away": 2,
         "pen": "home"
       },
-      "Douglas": {
-        "home": 1,
-        "away": 1,
-        "pen": "home"
-      },
-      "Weverthon": {
-        "home": 2,
-        "away": 1
-      },
-      "Basilio": {
-        "home": 2,
-        "away": 1
-      },
-      "Marcos": {
-        "home": 1,
-        "away": 2
-      }
-    },
-    "537426": {
-      "Pedroka": {
-        "home": 2,
-        "away": 1
-      },
       "Welsirley": {
         "home": 2,
-        "away": 0
-      },
-      "Euller": {
-        "home": 3,
-        "away": 0
-      },
-      "Reiner": {
-        "home": 4,
-        "away": 0
-      },
-      "Douglas": {
-        "home": 3,
-        "away": 0
-      },
-      "Weverthon": {
-        "home": 3,
-        "away": 0
+        "away": 2,
+        "pen": "home"
       },
       "Basilio": {
-        "home": 3,
-        "away": 0
+        "home": 2,
+        "away": 1
       },
-      "Marcos": {
-        "home": 3,
+      "Douglas": {
+        "home": 2,
+        "away": 1
+      },
+      "Euller": {
+        "home": 1,
+        "away": 1,
+        "pen": "away"
+      },
+      "Reiner": {
+        "home": 2,
+        "away": 1
+      },
+      "Pedroka": {
+        "home": 2,
         "away": 1
       }
     },
-    "537422": {
-      "Pedroka": {
+    "537419": {
+      "Weverthon": {
         "home": 1,
         "away": 1,
         "pen": "home"
       },
       "Welsirley": {
-        "home": 3,
-        "away": 1
-      },
-      "Euller": {
-        "home": 2,
-        "away": 1
-      },
-      "Reiner": {
         "home": 1,
         "away": 1,
         "pen": "home"
-      },
-      "Douglas": {
-        "home": 1,
-        "away": 2
-      },
-      "Weverthon": {
-        "home": 2,
-        "away": 1
       },
       "Basilio": {
         "home": 1,
+        "away": 1,
+        "pen": "away"
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 1
+      },
+      "Euller": {
+        "home": 3,
         "away": 2
       },
-      "Marcos": {
-        "home": 1,
-        "away": 1,
-        "pen": "home"
-      }
-    },
-    "537421": {
+      "Reiner": {
+        "home": 2,
+        "away": 1
+      },
       "Pedroka": {
-        "home": 2,
-        "away": 3
-      },
-      "Welsirley": {
-        "home": 2,
-        "away": 1
-      },
-      "Euller": {
         "home": 3,
-        "away": 1
-      },
-      "Reiner": {
-        "home": 2,
-        "away": 0
-      },
-      "Douglas": {
-        "home": 2,
-        "away": 1
-      },
-      "Weverthon": {
-        "home": 2,
-        "away": 1
-      },
-      "Basilio": {
-        "home": 3,
-        "away": 1
-      },
-      "Marcos": {
-        "home": 2,
         "away": 1
       }
     },
     "537420": {
-      "Pedroka": {
-        "home": 5,
-        "away": 1
+      "Weverthon": {
+        "home": 2,
+        "away": 0
       },
       "Welsirley": {
         "home": 1,
+        "away": 0
+      },
+      "Basilio": {
+        "home": 2,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 2,
         "away": 0
       },
       "Euller": {
@@ -9357,11 +9183,79 @@
         "home": 3,
         "away": 0
       },
+      "Pedroka": {
+        "home": 5,
+        "away": 1
+      }
+    },
+    "537421": {
+      "Weverthon": {
+        "home": 2,
+        "away": 1
+      },
+      "Welsirley": {
+        "home": 2,
+        "away": 1
+      },
+      "Basilio": {
+        "home": 3,
+        "away": 1
+      },
       "Douglas": {
+        "home": 2,
+        "away": 1
+      },
+      "Euller": {
+        "home": 3,
+        "away": 1
+      },
+      "Reiner": {
         "home": 2,
         "away": 0
       },
+      "Pedroka": {
+        "home": 2,
+        "away": 3
+      }
+    },
+    "537422": {
       "Weverthon": {
+        "home": 2,
+        "away": 1
+      },
+      "Welsirley": {
+        "home": 3,
+        "away": 1
+      },
+      "Basilio": {
+        "home": 1,
+        "away": 2
+      },
+      "Douglas": {
+        "home": 1,
+        "away": 2
+      },
+      "Euller": {
+        "home": 2,
+        "away": 1
+      },
+      "Reiner": {
+        "home": 1,
+        "away": 1,
+        "pen": "home"
+      },
+      "Pedroka": {
+        "home": 1,
+        "away": 1,
+        "pen": "home"
+      }
+    },
+    "537423": {
+      "Weverthon": {
+        "home": 2,
+        "away": 1
+      },
+      "Welsirley": {
         "home": 2,
         "away": 0
       },
@@ -9369,91 +9263,165 @@
         "home": 2,
         "away": 0
       },
-      "Marcos": {
-        "home": 2,
-        "away": 0
-      }
-    },
-    "537419": {
-      "Pedroka": {
+      "Douglas": {
         "home": 3,
         "away": 1
       },
+      "Euller": {
+        "home": 2,
+        "away": 1
+      },
+      "Reiner": {
+        "home": 2,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 3,
+        "away": 1
+      }
+    },
+    "537424": {
+      "Weverthon": {
+        "home": 1,
+        "away": 2
+      },
       "Welsirley": {
+        "home": 2,
+        "away": 3
+      },
+      "Basilio": {
+        "home": 1,
+        "away": 2
+      },
+      "Douglas": {
+        "home": 1,
+        "away": 2
+      },
+      "Euller": {
+        "home": 1,
+        "away": 3
+      },
+      "Reiner": {
+        "home": 1,
+        "away": 3
+      },
+      "Pedroka": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    "537425": {
+      "Weverthon": {
+        "home": 2,
+        "away": 1
+      },
+      "Welsirley": {
+        "home": 1,
+        "away": 1,
+        "pen": "home"
+      },
+      "Basilio": {
+        "home": 2,
+        "away": 1
+      },
+      "Douglas": {
         "home": 1,
         "away": 1,
         "pen": "home"
       },
       "Euller": {
-        "home": 3,
-        "away": 2
-      },
-      "Reiner": {
-        "home": 2,
-        "away": 1
-      },
-      "Douglas": {
-        "home": 2,
-        "away": 1
-      },
-      "Weverthon": {
         "home": 1,
         "away": 1,
         "pen": "home"
       },
-      "Basilio": {
-        "home": 1,
-        "away": 1,
-        "pen": "away"
-      },
-      "Marcos": {
-        "home": 3,
-        "away": 2
-      }
-    },
-    "537429": {
-      "Pedroka": {
-        "home": 3,
-        "away": 2
-      },
-      "Welsirley": {
+      "Reiner": {
         "home": 2,
         "away": 2,
         "pen": "home"
       },
-      "Euller": {
+      "Pedroka": {
+        "home": 2,
+        "away": 3
+      }
+    },
+    "537426": {
+      "Weverthon": {
+        "home": 3,
+        "away": 0
+      },
+      "Welsirley": {
         "home": 2,
         "away": 0
       },
-      "Reiner": {
-        "home": 2,
+      "Basilio": {
+        "home": 3,
         "away": 0
       },
       "Douglas": {
-        "home": 1,
+        "home": 3,
         "away": 0
       },
-      "Weverthon": {
-        "home": 2,
-        "away": 1
+      "Euller": {
+        "home": 3,
+        "away": 0
       },
-      "Basilio": {
-        "home": 2,
-        "away": 1
+      "Reiner": {
+        "home": 4,
+        "away": 0
       },
-      "Marcos": {
+      "Pedroka": {
         "home": 2,
         "away": 1
       }
     },
-    "537428": {
-      "Pedroka": {
-        "home": 2,
+    "537427": {
+      "Weverthon": {
+        "home": 3,
         "away": 0
+      },
+      "Welsirley": {
+        "home": 4,
+        "away": 0
+      },
+      "Basilio": {
+        "home": 3,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 3,
+        "away": 0
+      },
+      "Euller": {
+        "home": 4,
+        "away": 0
+      },
+      "Reiner": {
+        "home": 3,
+        "away": 0
+      },
+      "Pedroka": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    "537428": {
+      "Weverthon": {
+        "home": 2,
+        "away": 2,
+        "pen": "away"
       },
       "Welsirley": {
         "home": 1,
         "away": 2
+      },
+      "Basilio": {
+        "home": 1,
+        "away": 1,
+        "pen": "home"
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 1
       },
       "Euller": {
         "home": 1,
@@ -9463,67 +9431,58 @@
         "home": 0,
         "away": 1
       },
-      "Douglas": {
+      "Pedroka": {
         "home": 2,
-        "away": 1
-      },
-      "Weverthon": {
-        "home": 2,
-        "away": 2,
-        "pen": "away"
-      },
-      "Basilio": {
-        "home": 1,
-        "away": 1,
-        "pen": "home"
-      },
-      "Marcos": {
-        "home": 1,
-        "away": 2
+        "away": 0
       }
     },
-    "537427": {
-      "Pedroka": {
-        "home": 0,
+    "537429": {
+      "Weverthon": {
+        "home": 2,
         "away": 1
       },
       "Welsirley": {
-        "home": 4,
+        "home": 2,
+        "away": 2,
+        "pen": "home"
+      },
+      "Basilio": {
+        "home": 2,
+        "away": 1
+      },
+      "Douglas": {
+        "home": 1,
         "away": 0
       },
       "Euller": {
-        "home": 4,
+        "home": 2,
         "away": 0
       },
       "Reiner": {
-        "home": 3,
-        "away": 0
-      },
-      "Douglas": {
-        "home": 3,
-        "away": 0
-      },
-      "Weverthon": {
-        "home": 3,
-        "away": 0
-      },
-      "Basilio": {
-        "home": 3,
-        "away": 0
-      },
-      "Marcos": {
         "home": 2,
         "away": 0
+      },
+      "Pedroka": {
+        "home": 3,
+        "away": 2
       }
     },
     "537430": {
-      "Pedroka": {
+      "Weverthon": {
         "home": 2,
         "away": 0
       },
       "Welsirley": {
         "home": 3,
         "away": 2
+      },
+      "Basilio": {
+        "home": 2,
+        "away": 0
+      },
+      "Douglas": {
+        "home": 2,
+        "away": 1
       },
       "Euller": {
         "home": 2,
@@ -9534,23 +9493,11 @@
         "away": 1,
         "pen": "home"
       },
-      "Douglas": {
-        "home": 2,
-        "away": 1
-      },
-      "Weverthon": {
+      "Pedroka": {
         "home": 2,
         "away": 0
-      },
-      "Basilio": {
-        "home": 2,
-        "away": 0
-      },
-      "Marcos": {
-        "home": 3,
-        "away": 1
       }
     }
   },
-  "updated": "2026-06-29T10:34:40.989350+00:00"
+  "updated": "2026-06-29T20:04:09.225398+00:00"
 }
