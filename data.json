@@ -5313,11 +5313,11 @@
       },
       "id": 537422,
       "utcDate": "2026-07-01T20:00:00Z",
-      "status": "PAUSED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-01T22:10:13Z",
+      "lastUpdated": "2026-07-01T22:13:33Z",
       "homeTeam": {
         "id": 805,
         "name": "Belgium",
@@ -5334,7 +5334,7 @@
       },
       "score": {
         "winner": "DRAW",
-        "duration": "REGULAR",
+        "duration": "EXTRA_TIME",
         "fullTime": {
           "home": 2,
           "away": 2
@@ -5342,6 +5342,14 @@
         "halfTime": {
           "home": 0,
           "away": 1
+        },
+        "regularTime": {
+          "home": null,
+          "away": null
+        },
+        "extraTime": {
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -9639,5 +9647,5 @@
       }
     }
   },
-  "updated": "2026-07-01T22:10:35.512111+00:00"
+  "updated": "2026-07-01T22:13:58.849668+00:00"
 }
