@@ -5053,7 +5053,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-01T08:25:00Z",
+      "lastUpdated": "2026-07-01T08:25:01Z",
       "homeTeam": {
         "id": 1935,
         "name": "Ivory Coast",
@@ -5313,11 +5313,11 @@
       },
       "id": 537422,
       "utcDate": "2026-07-01T20:00:00Z",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-01T22:43:56Z",
+      "lastUpdated": "2026-07-01T23:03:13Z",
       "homeTeam": {
         "id": 805,
         "name": "Belgium",
@@ -5333,10 +5333,10 @@
         "crest": "https://crests.football-data.org/senegal.svg"
       },
       "score": {
-        "winner": "DRAW",
+        "winner": "HOME_TEAM",
         "duration": "EXTRA_TIME",
         "fullTime": {
-          "home": 2,
+          "home": 3,
           "away": 2
         },
         "halfTime": {
@@ -5348,7 +5348,7 @@
           "away": null
         },
         "extraTime": {
-          "home": 0,
+          "home": 1,
           "away": 0
         }
       },
@@ -9647,5 +9647,5 @@
       }
     }
   },
-  "updated": "2026-07-01T22:44:02.553413+00:00"
+  "updated": "2026-07-01T23:14:07.108424+00:00"
 }
