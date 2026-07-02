@@ -5387,11 +5387,11 @@
       },
       "id": 537421,
       "utcDate": "2026-07-02T00:00:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-06-30T15:20:13Z",
+      "lastUpdated": "2026-07-02T00:14:06Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -5407,11 +5407,11 @@
         "crest": "https://crests.football-data.org/bosnia.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         },
         "halfTime": {
           "home": null,
@@ -9647,5 +9647,5 @@
       }
     }
   },
-  "updated": "2026-07-01T23:44:13.219941+00:00"
+  "updated": "2026-07-02T00:14:17.339991+00:00"
 }
