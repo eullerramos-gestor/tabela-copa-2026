@@ -5391,7 +5391,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-02T00:14:06Z",
+      "lastUpdated": "2026-07-02T00:44:07Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -9647,5 +9647,5 @@
       }
     }
   },
-  "updated": "2026-07-02T00:14:17.339991+00:00"
+  "updated": "2026-07-02T00:44:21.649249+00:00"
 }
