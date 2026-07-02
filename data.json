@@ -5053,7 +5053,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-01T08:25:00Z",
+      "lastUpdated": "2026-07-01T08:25:01Z",
       "homeTeam": {
         "id": 1935,
         "name": "Ivory Coast",
@@ -5317,7 +5317,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-01T23:03:12Z",
+      "lastUpdated": "2026-07-01T23:03:13Z",
       "homeTeam": {
         "id": 805,
         "name": "Belgium",
@@ -5387,11 +5387,11 @@
       },
       "id": 537421,
       "utcDate": "2026-07-02T00:00:00Z",
-      "status": "PAUSED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-02T01:01:21Z",
+      "lastUpdated": "2026-07-02T01:44:08Z",
       "homeTeam": {
         "id": 771,
         "name": "United States",
@@ -9647,5 +9647,5 @@
       }
     }
   },
-  "updated": "2026-07-02T01:14:25.893420+00:00"
+  "updated": "2026-07-02T01:44:30.842765+00:00"
 }
