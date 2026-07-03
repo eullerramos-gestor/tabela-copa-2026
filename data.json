@@ -5523,7 +5523,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-03T00:16:39Z",
+      "lastUpdated": "2026-07-03T00:47:15Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -5542,8 +5542,8 @@
         "winner": "DRAW",
         "duration": "REGULAR",
         "fullTime": {
-          "home": 0,
-          "away": 0
+          "home": 1,
+          "away": 1
         },
         "halfTime": {
           "home": 0,
@@ -9661,5 +9661,5 @@
       }
     }
   },
-  "updated": "2026-07-03T00:17:08.757503+00:00"
+  "updated": "2026-07-03T00:47:56.244744+00:00"
 }
