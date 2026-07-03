@@ -5523,7 +5523,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-02T23:46:39Z",
+      "lastUpdated": "2026-07-03T00:16:39Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -5546,8 +5546,8 @@
           "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -9661,5 +9661,5 @@
       }
     }
   },
-  "updated": "2026-07-02T23:47:03.634012+00:00"
+  "updated": "2026-07-03T00:17:08.757503+00:00"
 }
