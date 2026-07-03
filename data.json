@@ -5655,7 +5655,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-03T19:23:00Z",
+      "lastUpdated": "2026-07-03T19:53:00Z",
       "homeTeam": {
         "id": 779,
         "name": "Australia",
@@ -9675,5 +9675,5 @@
       }
     }
   },
-  "updated": "2026-07-03T19:23:10.288896+00:00"
+  "updated": "2026-07-03T19:53:14.873794+00:00"
 }
