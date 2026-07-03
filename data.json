@@ -5523,7 +5523,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-03T01:22:34Z",
+      "lastUpdated": "2026-07-03T01:26:11Z",
       "homeTeam": {
         "id": 765,
         "name": "Portugal",
@@ -9668,5 +9668,5 @@
       }
     }
   },
-  "updated": "2026-07-03T01:41:59.208087+00:00"
+  "updated": "2026-07-03T02:16:31.615409+00:00"
 }
