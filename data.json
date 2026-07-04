@@ -5733,7 +5733,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-04T02:45:06Z",
+      "lastUpdated": "2026-07-04T12:15:33Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -5807,7 +5807,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-04T05:32:36Z",
+      "lastUpdated": "2026-07-04T08:25:02Z",
       "homeTeam": {
         "id": 818,
         "name": "Colombia",
@@ -9709,5 +9709,5 @@
       }
     }
   },
-  "updated": "2026-07-04T08:24:41.658508+00:00"
+  "updated": "2026-07-04T12:36:24.954422+00:00"
 }
