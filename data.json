@@ -5807,7 +5807,7 @@
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-04T01:52:17Z",
+      "lastUpdated": "2026-07-04T02:19:17Z",
       "homeTeam": {
         "id": 818,
         "name": "Colombia",
@@ -9709,5 +9709,5 @@
       }
     }
   },
-  "updated": "2026-07-04T01:52:54.703740+00:00"
+  "updated": "2026-07-04T02:19:56.375758+00:00"
 }
