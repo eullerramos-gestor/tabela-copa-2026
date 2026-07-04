@@ -161,6 +161,18 @@ const BOLAO_SEED_R32_BY_ID = [
   { id: 537430, palpites: { Weverthon:'2x0', Marcos:'3x1', Welsirley:'3x2', Basilio:'2x0', Douglas:'2x1', Euller:'2x1', Reiner:'1x1*h', Pedroka:'2x0' } },
 ];
 
+// Oitavas de final. Mesmo formato: 'HxA' com sufixo '*h'/'*a' para o pênalti.
+const BOLAO_SEED_R16_BY_ID = [
+  { id: 537376, palpites: { Weverthon:'1x2', Marcos:'1x2', Welsirley:'1x3', Basilio:'1x2', Douglas:'0x2', Euller:'1x2', Reiner:'1x2', Pedroka:'1x1*h' } },
+  { id: 537375, palpites: { Weverthon:'1x3', Marcos:'0x2', Welsirley:'0x3', Basilio:'1x2', Douglas:'2x1', Euller:'1x3', Reiner:'0x2', Pedroka:'1x2' } },
+  { id: 537377, palpites: { Weverthon:'2x2*h', Marcos:'3x1', Welsirley:'2x0', Basilio:'2x1', Douglas:'4x1', Euller:'2x2*h', Reiner:'3x2', Pedroka:'1x0' } },
+  { id: 537378, palpites: { Weverthon:'1x2', Marcos:'2x1', Welsirley:'1x1*a', Basilio:'1x2', Douglas:'3x1', Euller:'1x3', Reiner:'1x2', Pedroka:'1x1*a' } },
+  { id: 537379, palpites: { Weverthon:'1x2', Marcos:'1x1*h', Welsirley:'1x2', Basilio:'1x2', Douglas:'2x1', Euller:'1x2', Reiner:'2x2*h', Pedroka:'2x2*h' } },
+  { id: 537380, palpites: { Weverthon:'2x2*h', Marcos:'2x2*h', Welsirley:'2x1', Basilio:'2x1', Douglas:'0x2', Euller:'1x1*a', Reiner:'2x1', Pedroka:'0x2' } },
+  { id: 537381, palpites: { Weverthon:'3x0', Marcos:'2x1', Welsirley:'2x0', Basilio:'2x0', Douglas:'1x1*a', Euller:'3x2', Reiner:'2x0', Pedroka:'3x1' } },
+  { id: 537382, palpites: { Weverthon:'1x2', Marcos:'0x1', Welsirley:'1x1*a', Basilio:'1x1*a', Douglas:'0x2', Euller:'1x2', Reiner:'1x1*a', Pedroka:'0x2' } },
+];
+
 const TEAM_ALIASES = {
   'México': { primary: 'Mexico' },
   'África do Sul': { primary: 'South Africa' },
@@ -427,7 +439,7 @@ function seedBolaoData() {
     }
   });
 
-  [...BOLAO_SEED_R2_BY_ID, ...BOLAO_SEED_R3_BY_ID, ...BOLAO_SEED_R32_BY_ID].forEach(({ id, palpites }) => {
+  [...BOLAO_SEED_R2_BY_ID, ...BOLAO_SEED_R3_BY_ID, ...BOLAO_SEED_R32_BY_ID, ...BOLAO_SEED_R16_BY_ID].forEach(({ id, palpites }) => {
     const key = String(id);
     const entry = data[key] || {};
     let entryChanged = false;
