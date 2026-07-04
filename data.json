@@ -5729,11 +5729,11 @@
       },
       "id": 537427,
       "utcDate": "2026-07-03T22:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-03T23:38:45Z",
+      "lastUpdated": "2026-07-04T00:50:06Z",
       "homeTeam": {
         "id": 762,
         "name": "Argentina",
@@ -5749,15 +5749,23 @@
         "crest": "https://crests.football-data.org/cape_verde.svg"
       },
       "score": {
-        "winner": "DRAW",
-        "duration": "REGULAR",
+        "winner": "HOME_TEAM",
+        "duration": "EXTRA_TIME",
         "fullTime": {
-          "home": 1,
-          "away": 1
+          "home": 3,
+          "away": 2
         },
         "halfTime": {
           "home": 1,
           "away": 0
+        },
+        "regularTime": {
+          "home": null,
+          "away": null
+        },
+        "extraTime": {
+          "home": 2,
+          "away": 1
         }
       },
       "odds": {
@@ -5795,11 +5803,11 @@
       },
       "id": 537430,
       "utcDate": "2026-07-04T01:30:00Z",
-      "status": "TIMED",
+      "status": "IN_PLAY",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-02T15:20:12Z",
+      "lastUpdated": "2026-07-04T01:52:17Z",
       "homeTeam": {
         "id": 818,
         "name": "Colombia",
@@ -5815,11 +5823,11 @@
         "crest": "https://crests.football-data.org/ghana.svg"
       },
       "score": {
-        "winner": null,
+        "winner": "HOME_TEAM",
         "duration": "REGULAR",
         "fullTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         },
         "halfTime": {
           "home": null,
@@ -9701,5 +9709,5 @@
       }
     }
   },
-  "updated": "2026-07-03T23:38:47.410625+00:00"
+  "updated": "2026-07-04T01:52:54.703740+00:00"
 }
