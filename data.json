@@ -5803,11 +5803,11 @@
       },
       "id": 537430,
       "utcDate": "2026-07-04T01:30:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_32",
       "group": null,
-      "lastUpdated": "2026-07-04T02:22:16Z",
+      "lastUpdated": "2026-07-04T03:45:01Z",
       "homeTeam": {
         "id": 818,
         "name": "Colombia",
@@ -5830,8 +5830,8 @@
           "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 1,
+          "away": 0
         }
       },
       "odds": {
@@ -9709,5 +9709,5 @@
       }
     }
   },
-  "updated": "2026-07-04T02:22:58.819808+00:00"
+  "updated": "2026-07-04T04:48:52.376994+00:00"
 }
