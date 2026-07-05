@@ -508,6 +508,26 @@ function seedBolaoData() {
   if (changed) localStorage.setItem('copa2026_bolao', JSON.stringify(data));
 }
 
+// Correções manuais de placar (ex.: placar de pênaltis que a API traz somado/errado).
+// Semeadas em copa2026_scores para a versão local ficar igual à publicada.
+const SCORE_OVERRIDE_SEED = {
+  // Austrália x Egito (16 avos): jogo 1x1, pênaltis 3x5, Egito (fora) passou.
+  537428: { penHome: 3, penAway: 5, penWinner: 'away' },
+};
+
+function seedScoreOverrides() {
+  const overrides = getScoreOverrides();
+  let changed = false;
+  Object.entries(SCORE_OVERRIDE_SEED).forEach(([id, fields]) => {
+    const entry = overrides[id] || {};
+    Object.entries(fields).forEach(([k, v]) => {
+      if (entry[k] === undefined) { entry[k] = v; changed = true; }
+    });
+    overrides[id] = entry;
+  });
+  if (changed) localStorage.setItem('copa2026_scores', JSON.stringify(overrides));
+}
+
 function scorePalpite(actual, palpite, actualPenWinner) {
   if (actual.home === null || actual.away === null) return null;
   if (palpite.home === undefined || palpite.away === undefined) return 0;
@@ -570,6 +590,7 @@ async function fetchMatches() {
     setLastUpdated(now);
 
     seedBolaoData();
+    seedScoreOverrides();
     showStatus('', null);
     render();
   } catch (err) {
@@ -592,6 +613,7 @@ function loadCache() {
       allMatches = JSON.parse(cached);
       if (updated) setLastUpdated(new Date(updated));
       seedBolaoData();
+      seedScoreOverrides();
       render();
     } catch (e) {
       allMatches = [];
