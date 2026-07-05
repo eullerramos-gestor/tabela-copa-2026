@@ -283,31 +283,70 @@ function saveScoreOverride(matchId, side, value) {
   localStorage.setItem('copa2026_scores', JSON.stringify(overrides));
 }
 
+// Detecta se o jogo foi decidido nos pênaltis (a API marca duration
+// PENALTY_SHOOTOUT e/ou traz o placar de pênaltis).
+function wentToPenalties(sc) {
+  if (!sc) return false;
+  if (sc.duration === 'PENALTY_SHOOTOUT') return true;
+  const p = sc.penalties || {};
+  return p.home !== null && p.home !== undefined;
+}
+
+// Placar do JOGO (tempo normal + prorrogação). Em jogos de pênalti, a API
+// soma os pênaltis no fullTime — por isso usamos regularTime + extraTime.
 function getEffectiveScore(match) {
   const overrides = getScoreOverrides();
   const override = overrides[match.id] || {};
-  const apiFt = (match.score && match.score.fullTime) || {};
+  const sc = (match && match.score) || {};
 
-  const home = override.home !== undefined ? override.home
-    : (apiFt.home !== null && apiFt.home !== undefined ? apiFt.home : null);
-  const away = override.away !== undefined ? override.away
-    : (apiFt.away !== null && apiFt.away !== undefined ? apiFt.away : null);
+  let apiHome, apiAway;
+  if (wentToPenalties(sc)) {
+    const rt = sc.regularTime || {};
+    const et = sc.extraTime || {};
+    const has = rt.home !== null && rt.home !== undefined;
+    apiHome = has ? (rt.home || 0) + (et.home || 0) : null;
+    apiAway = has ? (rt.away || 0) + (et.away || 0) : null;
+  } else {
+    const ft = sc.fullTime || {};
+    apiHome = (ft.home !== null && ft.home !== undefined) ? ft.home : null;
+    apiAway = (ft.away !== null && ft.away !== undefined) ? ft.away : null;
+  }
 
+  const home = override.home !== undefined ? override.home : apiHome;
+  const away = override.away !== undefined ? override.away : apiAway;
   return { home, away };
+}
+
+// Placar dos pênaltis (disputa), ou null se não houve.
+function getEffectivePenScore(match) {
+  const overrides = getScoreOverrides();
+  const ov = overrides[match.id] || {};
+  if (ov.penHome !== undefined && ov.penAway !== undefined) {
+    return { home: ov.penHome, away: ov.penAway };
+  }
+  const sc = (match && match.score) || {};
+  const p = sc.penalties || {};
+  if (p.home !== null && p.home !== undefined && p.away !== null && p.away !== undefined) {
+    return { home: p.home, away: p.away };
+  }
+  return null;
 }
 
 // Retorna 'home' | 'away' | null — quem avançou nos pênaltis.
 // Prioriza a marcação manual (override) e, na falta, usa o vencedor da API
-// quando o jogo terminou empatado no tempo normal/prorrogação.
+// quando o jogo foi para os pênaltis.
 function getEffectivePenWinner(match) {
   const overrides = getScoreOverrides();
   const ov = overrides[match.id] || {};
   if (ov.penWinner === 'home' || ov.penWinner === 'away') return ov.penWinner;
 
-  const sc = match.score || {};
-  const ft = sc.fullTime || {};
-  const drawFt = ft.home !== null && ft.home !== undefined && ft.home === ft.away;
-  if (drawFt && sc.winner) {
+  const sc = (match && match.score) || {};
+  if (wentToPenalties(sc)) {
+    // Preferir o placar de pênaltis; se faltar, usar o campo winner.
+    const p = sc.penalties || {};
+    if (p.home !== null && p.home !== undefined && p.home !== p.away) {
+      return p.home > p.away ? 'home' : 'away';
+    }
     if (sc.winner === 'HOME_TEAM') return 'home';
     if (sc.winner === 'AWAY_TEAM') return 'away';
   }
@@ -1023,6 +1062,7 @@ function renderBolaoMatchesTable(matches) {
               ${m.awayTeam?.crest ? `<img src="${m.awayTeam.crest}" width="14" height="14" style="vertical-align:middle;flex-shrink:0;object-fit:contain">` : ''}
             </span>
           </div>
+          ${(() => { const ps = getEffectivePenScore(m); return ps ? `<div class="pen-score">Pênaltis: ${ps.home} x ${ps.away}</div>` : ''; })()}
           ${isKnockout && !READ_ONLY ? `
           <div class="pen-actual" title="Marque quem passou nos pênaltis (resultado real)">
             <span class="pen-actual-label">Passou nos pênaltis:</span>
@@ -1109,6 +1149,7 @@ function renderBolaoParticipant(participantName) {
             <span class="detail-score">${rH} x ${rA}</span>
             <span class="detail-away"><span>${away}${penWinner === 'away' ? '<span class="pen-mark">*</span>' : ''}</span> ${aFlag}</span>
           </div>
+          ${(() => { const ps = getEffectivePenScore(m); return ps ? `<div class="pen-score">Pênaltis: ${ps.home} x ${ps.away}</div>` : ''; })()}
           <div class="match-meta">${formatDateTime(m.utcDate)}</div>
         </td>
         <td class="participant-detail-palpite">${palpiteStr}</td>

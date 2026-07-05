@@ -719,6 +719,13 @@ tr:last-child td {
   font-weight: 700;
 }
 
+.pen-score {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fbbf24;
+}
+
 .pen-actual {
   display: flex;
   align-items: center;
