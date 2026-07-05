@@ -508,11 +508,16 @@ function seedBolaoData() {
   if (changed) localStorage.setItem('copa2026_bolao', JSON.stringify(data));
 }
 
-// Correções manuais de placar (ex.: placar de pênaltis que a API traz somado/errado).
+// Correções manuais de placar (ex.: placar de pênaltis que a API traz errado).
 // Semeadas em copa2026_scores para a versão local ficar igual à publicada.
 const SCORE_OVERRIDE_SEED = {
-  // Austrália x Egito (16 avos): jogo 1x1, pênaltis 3x5, Egito (fora) passou.
-  537428: { penHome: 3, penAway: 5, penWinner: 'away' },
+  // (vazio no momento — a API está trazendo os placares de pênaltis corretos)
+};
+
+// Remove overrides antigos que não valem mais (auto-corrige a versão local).
+const SCORE_OVERRIDE_REMOVE = {
+  // Austrália x Egito: já foi marcado 3x5 por engano; a API traz 2x4 (correto).
+  537428: ['penHome', 'penAway', 'penWinner'],
 };
 
 function seedScoreOverrides() {
@@ -524,6 +529,12 @@ function seedScoreOverrides() {
       if (entry[k] === undefined) { entry[k] = v; changed = true; }
     });
     overrides[id] = entry;
+  });
+  Object.entries(SCORE_OVERRIDE_REMOVE).forEach(([id, keys]) => {
+    const entry = overrides[id];
+    if (!entry) return;
+    keys.forEach(k => { if (entry[k] !== undefined) { delete entry[k]; changed = true; } });
+    if (Object.keys(entry).length === 0) delete overrides[id];
   });
   if (changed) localStorage.setItem('copa2026_scores', JSON.stringify(overrides));
 }
