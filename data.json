@@ -6001,11 +6001,11 @@
       },
       "id": 537377,
       "utcDate": "2026-07-05T20:00:00Z",
-      "status": "IN_PLAY",
+      "status": "PAUSED",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-05T20:39:12Z",
+      "lastUpdated": "2026-07-05T20:59:47Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -6028,8 +6028,8 @@
           "away": 0
         },
         "halfTime": {
-          "home": null,
-          "away": null
+          "home": 0,
+          "away": 0
         }
       },
       "odds": {
@@ -10017,5 +10017,5 @@
       }
     }
   },
-  "updated": "2026-07-05T20:39:18.325094+00:00"
+  "updated": "2026-07-05T21:09:22.699881+00:00"
 }
