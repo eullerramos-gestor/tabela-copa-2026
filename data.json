@@ -6005,7 +6005,7 @@
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-05T22:09:19Z",
+      "lastUpdated": "2026-07-06T03:25:01Z",
       "homeTeam": {
         "id": 764,
         "name": "Brazil",
@@ -6067,11 +6067,11 @@
       },
       "id": 537378,
       "utcDate": "2026-07-06T01:00:00Z",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "matchday": null,
       "stage": "LAST_16",
       "group": null,
-      "lastUpdated": "2026-07-06T02:55:48Z",
+      "lastUpdated": "2026-07-06T03:25:01Z",
       "homeTeam": {
         "id": 769,
         "name": "Mexico",
@@ -10024,5 +10024,5 @@
       }
     }
   },
-  "updated": "2026-07-06T02:56:13.096231+00:00"
+  "updated": "2026-07-06T04:44:25.138314+00:00"
 }
