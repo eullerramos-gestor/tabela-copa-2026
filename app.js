@@ -173,6 +173,14 @@ const BOLAO_SEED_R16_BY_ID = [
   { id: 537382, palpites: { Weverthon:'1x2', Marcos:'0x1', Welsirley:'1x1*a', Basilio:'1x1*a', Douglas:'0x2', Euller:'1x2', Reiner:'1x1*a', Pedroka:'0x2' } },
 ];
 
+// Quartas de final. Mesmo formato: 'HxA' com sufixo '*h'/'*a' para o pênalti.
+const BOLAO_SEED_QF_BY_ID = [
+  { id: 537383, palpites: { Weverthon:'2x1', Marcos:'2x1', Welsirley:'2x0', Basilio:'1x1', Douglas:'2x1', Euller:'2x0', Reiner:'3x1', Pedroka:'2x1' } },
+  { id: 537384, palpites: { Weverthon:'2x1', Marcos:'1x1*h', Welsirley:'1x0', Basilio:'2x1', Douglas:'3x1', Euller:'1x1*a', Reiner:'2x1', Pedroka:'2x1' } },
+  { id: 537385, palpites: { Weverthon:'1x2', Marcos:'2x3', Welsirley:'1x2', Basilio:'1x3', Douglas:'2x2*h', Euller:'1x3', Reiner:'1x2', Pedroka:'0x2' } },
+  { id: 537386, palpites: { Weverthon:'2x2*h', Marcos:'2x1', Welsirley:'2x1', Basilio:'2x1', Douglas:'2x2*a', Euller:'3x0', Reiner:'1x1*h', Pedroka:'2x1' } },
+];
+
 const TEAM_ALIASES = {
   'México': { primary: 'Mexico' },
   'África do Sul': { primary: 'South Africa' },
@@ -478,7 +486,7 @@ function seedBolaoData() {
     }
   });
 
-  [...BOLAO_SEED_R2_BY_ID, ...BOLAO_SEED_R3_BY_ID, ...BOLAO_SEED_R32_BY_ID, ...BOLAO_SEED_R16_BY_ID].forEach(({ id, palpites }) => {
+  [...BOLAO_SEED_R2_BY_ID, ...BOLAO_SEED_R3_BY_ID, ...BOLAO_SEED_R32_BY_ID, ...BOLAO_SEED_R16_BY_ID, ...BOLAO_SEED_QF_BY_ID].forEach(({ id, palpites }) => {
     const key = String(id);
     const entry = data[key] || {};
     let entryChanged = false;
