@@ -181,6 +181,12 @@ const BOLAO_SEED_QF_BY_ID = [
   { id: 537386, palpites: { Weverthon:'2x2*h', Marcos:'2x1', Welsirley:'2x1', Basilio:'2x1', Douglas:'2x2*a', Euller:'3x0', Reiner:'1x1*h', Pedroka:'2x1' } },
 ];
 
+// Semifinais. Mesmo formato: 'HxA' com sufixo '*h'/'*a' para o pênalti.
+const BOLAO_SEED_SF_BY_ID = [
+  { id: 537387, palpites: { Weverthon:'2x2*a', Marcos:'3x3*a', Welsirley:'3x2', Basilio:'1x2', Douglas:'2x2*a', Euller:'3x2', Reiner:'3x1', Pedroka:'1x1*a' } },
+  { id: 537388, palpites: { Weverthon:'3x1', Marcos:'3x2', Welsirley:'2x1', Basilio:'2x2*a', Douglas:'3x1', Euller:'2x0', Reiner:'2x1', Pedroka:'3x2' } },
+];
+
 const TEAM_ALIASES = {
   'México': { primary: 'Mexico' },
   'África do Sul': { primary: 'South Africa' },
@@ -486,7 +492,7 @@ function seedBolaoData() {
     }
   });
 
-  [...BOLAO_SEED_R2_BY_ID, ...BOLAO_SEED_R3_BY_ID, ...BOLAO_SEED_R32_BY_ID, ...BOLAO_SEED_R16_BY_ID, ...BOLAO_SEED_QF_BY_ID].forEach(({ id, palpites }) => {
+  [...BOLAO_SEED_R2_BY_ID, ...BOLAO_SEED_R3_BY_ID, ...BOLAO_SEED_R32_BY_ID, ...BOLAO_SEED_R16_BY_ID, ...BOLAO_SEED_QF_BY_ID, ...BOLAO_SEED_SF_BY_ID].forEach(({ id, palpites }) => {
     const key = String(id);
     const entry = data[key] || {};
     let entryChanged = false;
